@@ -20,7 +20,8 @@ namespace Assignment1
             Console.Write("Please enter your contact: ");
             contact = Console.ReadLine();
 
-            Console.WriteLine("\nForm Information: \n");
+            Console.WriteLine("\nOutput: ");
+            Console.WriteLine("Form Information: \n");
             Console.WriteLine("Name: " + name);
             Console.WriteLine("Age: " + age);
             Console.WriteLine("Address: " + address);
