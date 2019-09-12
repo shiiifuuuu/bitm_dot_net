@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.showButton = new System.Windows.Forms.Button();
-            this.showName = new System.Windows.Forms.Label();
+            this.showLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -62,21 +62,21 @@
             this.showButton.UseVisualStyleBackColor = true;
             this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
-            // showName
+            // showLabel
             // 
-            this.showName.AutoSize = true;
-            this.showName.Location = new System.Drawing.Point(300, 165);
-            this.showName.Name = "showName";
-            this.showName.Size = new System.Drawing.Size(63, 13);
-            this.showName.TabIndex = 3;
-            this.showName.Text = "Show Label";
+            this.showLabel.AutoSize = true;
+            this.showLabel.Location = new System.Drawing.Point(300, 165);
+            this.showLabel.Name = "showLabel";
+            this.showLabel.Size = new System.Drawing.Size(63, 13);
+            this.showLabel.TabIndex = 3;
+            this.showLabel.Text = "Show Label";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.showName);
+            this.Controls.Add(this.showLabel);
             this.Controls.Add(this.showButton);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label1);
@@ -93,7 +93,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Button showButton;
-        private System.Windows.Forms.Label showName;
+        private System.Windows.Forms.Label showLabel;
     }
 }
 

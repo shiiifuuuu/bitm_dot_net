@@ -35,8 +35,7 @@ namespace MyWindowsFormsApp
         private void showButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Hello " + nameTextBox.Text);
-            showName.Text = nameTextBox.Text;
-
+            showLabel.Text = nameTextBox.Text;
         }
 
     }
