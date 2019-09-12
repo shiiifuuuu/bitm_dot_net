@@ -21,5 +21,23 @@ namespace MyWindowsFormsApp
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello " + nameTextBox.Text);
+            showName.Text = nameTextBox.Text;
+
+        }
+
     }
 }
