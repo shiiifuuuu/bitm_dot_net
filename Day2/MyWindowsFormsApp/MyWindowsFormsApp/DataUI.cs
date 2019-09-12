@@ -31,8 +31,8 @@ namespace MyWindowsFormsApp
 
             int result = firstNumber + secondNumber;
 
-            //MessageBox.Show("Name: " + name + " result = " + result.ToString());
-            MessageBox.Show(result + " ");
+            MessageBox.Show("Name: " + name + " result = " + result.ToString());
+            //MessageBox.Show(result + " ");
         }
 
         private void label3_Click(object sender, EventArgs e)
