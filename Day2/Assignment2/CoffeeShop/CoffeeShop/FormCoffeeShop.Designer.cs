@@ -142,9 +142,9 @@
             // 
             // showInformationRichTextBox
             // 
-            this.showInformationRichTextBox.Location = new System.Drawing.Point(502, 50);
+            this.showInformationRichTextBox.Location = new System.Drawing.Point(466, 12);
             this.showInformationRichTextBox.Name = "showInformationRichTextBox";
-            this.showInformationRichTextBox.Size = new System.Drawing.Size(280, 302);
+            this.showInformationRichTextBox.Size = new System.Drawing.Size(237, 302);
             this.showInformationRichTextBox.TabIndex = 11;
             this.showInformationRichTextBox.Text = "";
             // 
@@ -161,7 +161,7 @@
             this.groupBox1.Controls.Add(this.addressTextBox);
             this.groupBox1.Controls.Add(this.customerNameTextBox);
             this.groupBox1.Controls.Add(this.contactTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(48, 50);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(432, 302);
             this.groupBox1.TabIndex = 12;
@@ -172,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 385);
+            this.ClientSize = new System.Drawing.Size(712, 324);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.showInformationRichTextBox);
             this.Name = "FormCoffeeShop";
