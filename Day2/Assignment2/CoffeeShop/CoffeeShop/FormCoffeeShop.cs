@@ -30,16 +30,16 @@ namespace CoffeeShop
             {
                 switch (order)
                 {
-                    case "Black - 120":
+                    case "Black":
                         totalPrice = int.Parse(quantity) * 120;
                         break;
-                    case "Cold - 100":
+                    case "Cold":
                         totalPrice = int.Parse(quantity) * 100;
                         break;
-                    case "Hot - 90":
+                    case "Hot":
                         totalPrice = int.Parse(quantity) * 90;
                         break;
-                    case "Regular - 80":
+                    case "Regular":
                         totalPrice = int.Parse(quantity) * 80;
                         break;
                 }

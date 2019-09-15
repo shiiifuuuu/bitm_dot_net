@@ -121,10 +121,10 @@
             // 
             this.orderComboBox.FormattingEnabled = true;
             this.orderComboBox.Items.AddRange(new object[] {
-            "Black - 120",
-            "Cold - 100",
-            "Hot - 90",
-            "Regular - 80"});
+            "Black",
+            "Cold",
+            "Hot",
+            "Regular"});
             this.orderComboBox.Location = new System.Drawing.Point(195, 154);
             this.orderComboBox.Name = "orderComboBox";
             this.orderComboBox.Size = new System.Drawing.Size(214, 21);
