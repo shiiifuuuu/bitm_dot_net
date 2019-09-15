@@ -18,7 +18,8 @@ namespace MyWindowsFormsApp
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Home());
             //Application.Run(new DataUI());
-            Application.Run(new ConditionUI());
+            //Application.Run(new ConditionUI());
+            Application.Run(new ExerciseForm());
         }
     }
 }

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArrayUI.Designer.cs">
+      <DependentUpon>ArrayUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConditionUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,12 @@
     <Compile Include="DataUI.Designer.cs">
       <DependentUpon>DataUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Exercise1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exercise1.Designer.cs">
+      <DependentUpon>Exercise1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,11 +78,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ArrayUI.resx">
+      <DependentUpon>ArrayUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConditionUI.resx">
       <DependentUpon>ConditionUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataUI.resx">
       <DependentUpon>DataUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exercise1.resx">
+      <DependentUpon>Exercise1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
