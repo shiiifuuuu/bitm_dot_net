@@ -76,6 +76,13 @@ namespace MyWindowsFormsApp
             {
                 result = result + elements[i] + " ";
             }
+            String msg1 = result;
+            for(int i = size - 1; i > 0; i--)
+            {
+                result = result + elements[i] + " ";
+            }String msg2 = result;
+            MessageBox.Show("The value store in the array are: " + msg1
+                + "The value in reverse order are: " + msg2);
         }
     }
 }
