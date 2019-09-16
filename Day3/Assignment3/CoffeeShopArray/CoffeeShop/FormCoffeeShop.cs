@@ -35,6 +35,7 @@ namespace CoffeeShop
             if (customerNumber == SIZE)
             {
                 MessageBox.Show("Complete!");
+                emptyTextBox();
             }
             else
             {
