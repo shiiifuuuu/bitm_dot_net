@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CoffeeShop
 {
-    public partial class FormCoffeeShop : Form
+    public partial class CoffeeShopArrayForm : Form
     {
         private const int SIZE = 3;
         private int customerNumber = 0;
@@ -25,7 +25,7 @@ namespace CoffeeShop
         private String[] savedData = new String[SIZE];
 
 
-        public FormCoffeeShop()
+        public CoffeeShopArrayForm()
         {
             InitializeComponent();
         }

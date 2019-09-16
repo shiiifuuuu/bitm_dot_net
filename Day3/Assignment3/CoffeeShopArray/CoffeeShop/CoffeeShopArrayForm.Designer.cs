@@ -1,6 +1,6 @@
 ﻿namespace CoffeeShop
 {
-    partial class FormCoffeeShop
+    partial class CoffeeShopArrayForm
     {
         /// <summary>
         /// Required designer variable.
