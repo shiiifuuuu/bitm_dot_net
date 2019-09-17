@@ -32,6 +32,8 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.showButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ageTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +54,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(159, 34);
+            this.addButton.Location = new System.Drawing.Point(185, 48);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 2;
@@ -62,7 +64,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(53, 62);
+            this.showButton.Location = new System.Drawing.Point(78, 103);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 3;
@@ -70,14 +72,32 @@
             this.showButton.UseVisualStyleBackColor = true;
             this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Age";
+            // 
+            // ageTextBox
+            // 
+            this.ageTextBox.Location = new System.Drawing.Point(53, 66);
+            this.ageTextBox.Name = "ageTextBox";
+            this.ageTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ageTextBox.TabIndex = 1;
+            // 
             // ListUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 115);
+            this.ClientSize = new System.Drawing.Size(364, 175);
             this.Controls.Add(this.showButton);
             this.Controls.Add(this.addButton);
+            this.Controls.Add(this.ageTextBox);
             this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ListUI";
             this.Text = "List";
@@ -92,6 +112,8 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button showButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox ageTextBox;
     }
 }
 
