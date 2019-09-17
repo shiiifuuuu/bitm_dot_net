@@ -1,6 +1,6 @@
 ﻿namespace Assignment4
 {
-    partial class Form1
+    partial class CoffeeShopForm
     {
         /// <summary>
         /// Required designer variable.
@@ -180,14 +180,14 @@
             this.showInformationRichTextBox.TabIndex = 3;
             this.showInformationRichTextBox.Text = "";
             // 
-            // Form1
+            // CoffeeShopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 380);
             this.Controls.Add(this.showInformationRichTextBox);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "CoffeeShopForm";
             this.Text = "Coffee Shop";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

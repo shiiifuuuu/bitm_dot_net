@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Assignment4
 {
-    public partial class Form1 : Form
+    public partial class CoffeeShopForm : Form
     {
         private List<String> customerName = new List<String> { };
         private List<String> contactNo = new List<String> { };
@@ -23,7 +23,7 @@ namespace Assignment4
         private double price = 0;
         private int customerNumber = 1;
 
-        public Form1()
+        public CoffeeShopForm()
         {
             InitializeComponent();
         }
