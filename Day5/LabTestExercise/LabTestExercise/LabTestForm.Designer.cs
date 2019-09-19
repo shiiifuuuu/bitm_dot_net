@@ -37,19 +37,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.mobileTextBox = new System.Windows.Forms.TextBox();
+            this.ageTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.gpaPointTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.showButton = new System.Windows.Forms.Button();
+            this.resultRichTextBox = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -57,16 +57,16 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
+            this.avgPointTextBox = new System.Windows.Forms.TextBox();
+            this.minNameTextBox = new System.Windows.Forms.TextBox();
+            this.minPointTextBox = new System.Windows.Forms.TextBox();
+            this.maxNameTextBox = new System.Windows.Forms.TextBox();
+            this.maxPointTextBox = new System.Windows.Forms.TextBox();
+            this.totalPointTextBox = new System.Windows.Forms.TextBox();
+            this.idRadioButton = new System.Windows.Forms.RadioButton();
+            this.nameRadioButton = new System.Windows.Forms.RadioButton();
+            this.mobileRadioButton = new System.Windows.Forms.RadioButton();
+            this.searchButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -83,18 +83,18 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.showButton);
+            this.groupBox1.Controls.Add(this.addButton);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.gpaPointTextBox);
+            this.groupBox1.Controls.Add(this.addressTextBox);
+            this.groupBox1.Controls.Add(this.ageTextBox);
+            this.groupBox1.Controls.Add(this.mobileTextBox);
+            this.groupBox1.Controls.Add(this.nameTextBox);
+            this.groupBox1.Controls.Add(this.idTextBox);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -110,10 +110,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.searchButton);
+            this.groupBox2.Controls.Add(this.mobileRadioButton);
+            this.groupBox2.Controls.Add(this.nameRadioButton);
+            this.groupBox2.Controls.Add(this.idRadioButton);
             this.groupBox2.Location = new System.Drawing.Point(489, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(136, 126);
@@ -123,12 +123,12 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox12);
-            this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Controls.Add(this.textBox8);
-            this.groupBox3.Controls.Add(this.textBox9);
-            this.groupBox3.Controls.Add(this.textBox10);
-            this.groupBox3.Controls.Add(this.textBox11);
+            this.groupBox3.Controls.Add(this.totalPointTextBox);
+            this.groupBox3.Controls.Add(this.avgPointTextBox);
+            this.groupBox3.Controls.Add(this.minNameTextBox);
+            this.groupBox3.Controls.Add(this.minPointTextBox);
+            this.groupBox3.Controls.Add(this.maxNameTextBox);
+            this.groupBox3.Controls.Add(this.maxPointTextBox);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label15);
@@ -136,7 +136,7 @@
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.richTextBox1);
+            this.groupBox3.Controls.Add(this.resultRichTextBox);
             this.groupBox3.Location = new System.Drawing.Point(12, 284);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(623, 217);
@@ -189,47 +189,47 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "GPA Point";
             // 
-            // textBox1
+            // idTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(273, 20);
-            this.textBox1.TabIndex = 6;
+            this.idTextBox.Location = new System.Drawing.Point(100, 28);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(273, 20);
+            this.idTextBox.TabIndex = 6;
             // 
-            // textBox2
+            // nameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(100, 54);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(273, 20);
-            this.textBox2.TabIndex = 7;
+            this.nameTextBox.Location = new System.Drawing.Point(100, 54);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(273, 20);
+            this.nameTextBox.TabIndex = 7;
             // 
-            // textBox3
+            // mobileTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(100, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(273, 20);
-            this.textBox3.TabIndex = 8;
+            this.mobileTextBox.Location = new System.Drawing.Point(100, 80);
+            this.mobileTextBox.Name = "mobileTextBox";
+            this.mobileTextBox.Size = new System.Drawing.Size(273, 20);
+            this.mobileTextBox.TabIndex = 8;
             // 
-            // textBox4
+            // ageTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(100, 106);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(273, 20);
-            this.textBox4.TabIndex = 9;
+            this.ageTextBox.Location = new System.Drawing.Point(100, 106);
+            this.ageTextBox.Name = "ageTextBox";
+            this.ageTextBox.Size = new System.Drawing.Size(273, 20);
+            this.ageTextBox.TabIndex = 9;
             // 
-            // textBox5
+            // addressTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(100, 132);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(273, 20);
-            this.textBox5.TabIndex = 10;
+            this.addressTextBox.Location = new System.Drawing.Point(100, 132);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(273, 20);
+            this.addressTextBox.TabIndex = 10;
             // 
-            // textBox6
+            // gpaPointTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(100, 158);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(273, 20);
-            this.textBox6.TabIndex = 11;
+            this.gpaPointTextBox.Location = new System.Drawing.Point(100, 158);
+            this.gpaPointTextBox.Name = "gpaPointTextBox";
+            this.gpaPointTextBox.Size = new System.Drawing.Size(273, 20);
+            this.gpaPointTextBox.TabIndex = 11;
             // 
             // label2
             // 
@@ -267,31 +267,31 @@
             this.label10.TabIndex = 15;
             this.label10.Text = "(0-4)";
             // 
-            // button1
+            // addButton
             // 
-            this.button1.Location = new System.Drawing.Point(277, 197);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addButton.Location = new System.Drawing.Point(277, 197);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(96, 23);
+            this.addButton.TabIndex = 16;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // showButton
             // 
-            this.button3.Location = new System.Drawing.Point(277, 237);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Show All";
-            this.button3.UseVisualStyleBackColor = true;
+            this.showButton.Location = new System.Drawing.Point(277, 237);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(96, 23);
+            this.showButton.TabIndex = 18;
+            this.showButton.Text = "Show All";
+            this.showButton.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // resultRichTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(339, 192);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.resultRichTextBox.Location = new System.Drawing.Point(6, 19);
+            this.resultRichTextBox.Name = "resultRichTextBox";
+            this.resultRichTextBox.Size = new System.Drawing.Size(339, 192);
+            this.resultRichTextBox.TabIndex = 0;
+            this.resultRichTextBox.Text = "";
             // 
             // label11
             // 
@@ -356,89 +356,89 @@
             this.label17.TabIndex = 7;
             this.label17.Text = "Total";
             // 
-            // textBox7
+            // avgPointTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(416, 159);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(197, 20);
-            this.textBox7.TabIndex = 19;
+            this.avgPointTextBox.Location = new System.Drawing.Point(416, 159);
+            this.avgPointTextBox.Name = "avgPointTextBox";
+            this.avgPointTextBox.Size = new System.Drawing.Size(197, 20);
+            this.avgPointTextBox.TabIndex = 19;
             // 
-            // textBox8
+            // minNameTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(416, 133);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(197, 20);
-            this.textBox8.TabIndex = 20;
+            this.minNameTextBox.Location = new System.Drawing.Point(416, 133);
+            this.minNameTextBox.Name = "minNameTextBox";
+            this.minNameTextBox.Size = new System.Drawing.Size(197, 20);
+            this.minNameTextBox.TabIndex = 20;
             // 
-            // textBox9
+            // minPointTextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(416, 107);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(197, 20);
-            this.textBox9.TabIndex = 21;
+            this.minPointTextBox.Location = new System.Drawing.Point(416, 107);
+            this.minPointTextBox.Name = "minPointTextBox";
+            this.minPointTextBox.Size = new System.Drawing.Size(197, 20);
+            this.minPointTextBox.TabIndex = 21;
             // 
-            // textBox10
+            // maxNameTextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(416, 81);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(197, 20);
-            this.textBox10.TabIndex = 22;
+            this.maxNameTextBox.Location = new System.Drawing.Point(416, 81);
+            this.maxNameTextBox.Name = "maxNameTextBox";
+            this.maxNameTextBox.Size = new System.Drawing.Size(197, 20);
+            this.maxNameTextBox.TabIndex = 22;
             // 
-            // textBox11
+            // maxPointTextBox
             // 
-            this.textBox11.Location = new System.Drawing.Point(416, 55);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(197, 20);
-            this.textBox11.TabIndex = 23;
+            this.maxPointTextBox.Location = new System.Drawing.Point(416, 55);
+            this.maxPointTextBox.Name = "maxPointTextBox";
+            this.maxPointTextBox.Size = new System.Drawing.Size(197, 20);
+            this.maxPointTextBox.TabIndex = 23;
             // 
-            // textBox12
+            // totalPointTextBox
             // 
-            this.textBox12.Location = new System.Drawing.Point(416, 185);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(197, 20);
-            this.textBox12.TabIndex = 24;
+            this.totalPointTextBox.Location = new System.Drawing.Point(416, 185);
+            this.totalPointTextBox.Name = "totalPointTextBox";
+            this.totalPointTextBox.Size = new System.Drawing.Size(197, 20);
+            this.totalPointTextBox.TabIndex = 24;
             // 
-            // radioButton1
+            // idRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(36, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ID";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.idRadioButton.AutoSize = true;
+            this.idRadioButton.Location = new System.Drawing.Point(7, 20);
+            this.idRadioButton.Name = "idRadioButton";
+            this.idRadioButton.Size = new System.Drawing.Size(36, 17);
+            this.idRadioButton.TabIndex = 0;
+            this.idRadioButton.TabStop = true;
+            this.idRadioButton.Text = "ID";
+            this.idRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // nameRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(7, 43);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(53, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Name";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.nameRadioButton.AutoSize = true;
+            this.nameRadioButton.Location = new System.Drawing.Point(7, 43);
+            this.nameRadioButton.Name = "nameRadioButton";
+            this.nameRadioButton.Size = new System.Drawing.Size(53, 17);
+            this.nameRadioButton.TabIndex = 1;
+            this.nameRadioButton.TabStop = true;
+            this.nameRadioButton.Text = "Name";
+            this.nameRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // mobileRadioButton
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(7, 66);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(56, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Mobile";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.mobileRadioButton.AutoSize = true;
+            this.mobileRadioButton.Location = new System.Drawing.Point(7, 66);
+            this.mobileRadioButton.Name = "mobileRadioButton";
+            this.mobileRadioButton.Size = new System.Drawing.Size(56, 17);
+            this.mobileRadioButton.TabIndex = 2;
+            this.mobileRadioButton.TabStop = true;
+            this.mobileRadioButton.Text = "Mobile";
+            this.mobileRadioButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // searchButton
             // 
-            this.button2.Location = new System.Drawing.Point(7, 101);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
+            this.searchButton.Location = new System.Drawing.Point(7, 101);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(113, 23);
+            this.searchButton.TabIndex = 3;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
             // 
             // LabTestForm
             // 
@@ -467,12 +467,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox gpaPointTextBox;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.TextBox ageTextBox;
+        private System.Windows.Forms.TextBox mobileTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -480,16 +480,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button showButton;
+        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.RichTextBox resultRichTextBox;
+        private System.Windows.Forms.TextBox totalPointTextBox;
+        private System.Windows.Forms.TextBox avgPointTextBox;
+        private System.Windows.Forms.TextBox minNameTextBox;
+        private System.Windows.Forms.TextBox minPointTextBox;
+        private System.Windows.Forms.TextBox maxNameTextBox;
+        private System.Windows.Forms.TextBox maxPointTextBox;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
@@ -497,10 +497,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.RadioButton mobileRadioButton;
+        private System.Windows.Forms.RadioButton nameRadioButton;
+        private System.Windows.Forms.RadioButton idRadioButton;
     }
 }
 
