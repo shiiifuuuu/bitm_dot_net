@@ -12,7 +12,7 @@ namespace LabTestExercise
 {
     public partial class LabTestForm : Form
     {
-        Boolean check = false;
+        Boolean inputValid = false;
         List<String> ids = new List<String> { };
         List<String> names = new List<String> { };
         List<String> mobiles = new List<String> { };
@@ -32,7 +32,9 @@ namespace LabTestExercise
 
         private void getData()
         {
-            if (checkCondition())
+            checkCondition();
+
+            if (inputValid)
             {
                 ids.Add(idTextBox.Text);
                 names.Add(nameTextBox.Text);
@@ -40,12 +42,14 @@ namespace LabTestExercise
                 ages.Add(ageTextBox.Text);
                 addresses.Add(addressTextBox.Text);
                 gpaPoints.Add(gpaPointTextBox.Text);
+                MessageBox.Show("COMPLETE");
+                ClearInputs();
             }
             
         }
-        private Boolean checkCondition()
+        private void checkCondition()
         {
-            if(check == false)
+            if(inputValid == false)
             {
                 if (idTextBox.Text == "" || idTextBox.Text.Length < 4 || ids.Contains(idTextBox.Text))
                 {
@@ -73,19 +77,37 @@ namespace LabTestExercise
                         MessageBox.Show("mobile can not be empty!!");
                     }else if(mobileTextBox.Text.Length < 11)
                     {
-                        MessageBox.Show("Mobile number must be 4 character long!!");
+                        MessageBox.Show("Mobile number must be 11 character long!!");
                     }else if (mobiles.Contains(mobileTextBox.Text))
                     {
                         MessageBox.Show("Mobile number already exist.");
                     }
                 }
+                return ;
             }
-            else
-            {
-                check = true;
-            }
-            return check;
+            inputValid = true;
         }
+
+        private void ClearInputs()
+        {
+            idTextBox.Text = "";
+            nameTextBox.Text = "";
+            mobileTextBox.Text = "";
+            ageTextBox.Text = "";
+            addressTextBox.Text = "";
+            gpaPointTextBox.Text = "";
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         private void mobileTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -125,7 +147,7 @@ namespace LabTestExercise
         private void textInput(KeyPressEventArgs e)
         {
             Char chr = e.KeyChar;
-            if (!(char.IsLetter(chr) || chr == (char)Keys.Back) || chr == (char)Keys.Space)
+            if (Char.IsDigit(chr) && chr != 8)
             {
                 e.Handled = true;
                 MessageBox.Show("Input only alphabetic characters");
