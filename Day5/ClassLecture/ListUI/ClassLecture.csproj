@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CE2D954E-B954-4C97-898F-E13F11C14027}</ProjectGuid>
+    <ProjectGuid>{D7B60C71-A4B6-4225-9EA9-88DDAD6E09C9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Assignment4</RootNamespace>
-    <AssemblyName>Assignment4</AssemblyName>
+    <RootNamespace>ListUI</RootNamespace>
+    <AssemblyName>ListUI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoffeeShop.cs">
+    <Compile Include="ListUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CoffeeShop.Designer.cs">
-      <DependentUpon>CoffeeShop.cs</DependentUpon>
+    <Compile Include="ListUI.Designer.cs">
+      <DependentUpon>ListUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CoffeeShop.resx">
-      <DependentUpon>CoffeeShop.cs</DependentUpon>
+    <EmbeddedResource Include="ListUI.resx">
+      <DependentUpon>ListUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
