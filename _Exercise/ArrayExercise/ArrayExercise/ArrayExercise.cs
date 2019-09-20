@@ -18,6 +18,7 @@ namespace ArrayExercise
         int count = 0;
         int length;
         String[] elements = new String[size];
+        String[] newArray;
 
         public ArrayExercise()
         {
@@ -63,10 +64,10 @@ namespace ArrayExercise
 
         private void showButton_Click(object sender, EventArgs e)
         {
-            showElementsRichTextBox.Text = "Elements in array are: " + showElementsFromArray(elements);
+            showElementsRichTextBox.Text = "Elements in array are: " + arrayElements(elements);
         }
 
-        private String showElementsFromArray(String[] array)
+        private String arrayElements(String[] array)
         {
             String message = "";
             for (int i = 0; i < array.Length; i++)
@@ -89,24 +90,45 @@ namespace ArrayExercise
 
         private void sumButton_Click(object sender, EventArgs e)
         {
+            showButton_Click(sender, e);
             int sum = 0;
             for (int i=0; i<elements.Length; i++)
             {
                 sum += int.Parse(elements[i]);
             }
-            showElementsRichTextBox.Text = "Sum of all elemetns stored in array: " + sum;
+            showElementsRichTextBox.Text += "\n\nSum of all elemetns stored in array: " + sum;
         }
 
         private void copyButton_Click(object sender, EventArgs e)
         {
-            String[] newArray = new String[elements.Length];
+            newArray = new String[elements.Length];
             elements.CopyTo(newArray, 0);
-            String array1 = showElementsFromArray(elements);
-            String array2 = showElementsFromArray(newArray);
+            String array1 = arrayElements(elements);
+            String array2 = arrayElements(newArray);
 
             showElementsRichTextBox.Text = "The elements stored in first Array: " + array1 
                                             + "\n\n" 
                                             + "The elements stored in second Array: " + array2;
+        }
+
+        private void findDuplicateButton_Click(object sender, EventArgs e)
+        {
+            String message = "";
+            int duplicate = 0;
+
+            for (int i=0; i<elements.Length; i++)
+            {
+                for( int j=1; j<elements.Length; j++)
+                {
+                    if(elements[i] == elements[j])
+                    {
+                        message += elements[i] + " ";
+                        duplicate++;
+                    }
+                }
+            }
+            showElementsRichTextBox.Text = "Duplicate elements: " + message +
+                "\nTotal Number: " + duplicate;
         }
     }
 }

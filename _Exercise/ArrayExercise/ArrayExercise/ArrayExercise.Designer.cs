@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.showElementsRichTextBox = new System.Windows.Forms.RichTextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.addTextBox = new System.Windows.Forms.TextBox();
             this.showButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.showElementsRichTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.sizeLabel = new System.Windows.Forms.Label();
             this.addSizeButton = new System.Windows.Forms.Button();
@@ -43,14 +43,18 @@
             this.sumButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.copyButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.copyButton = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.findDuplicateButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -65,14 +69,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exercise 1";
-            // 
-            // showElementsRichTextBox
-            // 
-            this.showElementsRichTextBox.Location = new System.Drawing.Point(11, 19);
-            this.showElementsRichTextBox.Name = "showElementsRichTextBox";
-            this.showElementsRichTextBox.Size = new System.Drawing.Size(276, 157);
-            this.showElementsRichTextBox.TabIndex = 4;
-            this.showElementsRichTextBox.Text = "";
             // 
             // addButton
             // 
@@ -109,6 +105,14 @@
             this.label1.Size = new System.Drawing.Size(181, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Store elements in an array and print it";
+            // 
+            // showElementsRichTextBox
+            // 
+            this.showElementsRichTextBox.Location = new System.Drawing.Point(11, 19);
+            this.showElementsRichTextBox.Name = "showElementsRichTextBox";
+            this.showElementsRichTextBox.Size = new System.Drawing.Size(276, 157);
+            this.showElementsRichTextBox.TabIndex = 4;
+            this.showElementsRichTextBox.Text = "";
             // 
             // groupBox2
             // 
@@ -198,6 +202,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Exercise 4";
             // 
+            // copyButton
+            // 
+            this.copyButton.Location = new System.Drawing.Point(46, 48);
+            this.copyButton.Name = "copyButton";
+            this.copyButton.Size = new System.Drawing.Size(75, 23);
+            this.copyButton.TabIndex = 1;
+            this.copyButton.Text = "Copy";
+            this.copyButton.UseVisualStyleBackColor = true;
+            this.copyButton.Click += new System.EventHandler(this.copyButton_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -217,21 +231,42 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Result";
             // 
-            // copyButton
+            // groupBox6
             // 
-            this.copyButton.Location = new System.Drawing.Point(46, 48);
-            this.copyButton.Name = "copyButton";
-            this.copyButton.Size = new System.Drawing.Size(75, 23);
-            this.copyButton.TabIndex = 1;
-            this.copyButton.Text = "Copy";
-            this.copyButton.UseVisualStyleBackColor = true;
-            this.copyButton.Click += new System.EventHandler(this.copyButton_Click);
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Controls.Add(this.findDuplicateButton);
+            this.groupBox6.Location = new System.Drawing.Point(217, 18);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(164, 71);
+            this.groupBox6.TabIndex = 6;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "groupBox6";
+            // 
+            // findDuplicateButton
+            // 
+            this.findDuplicateButton.Location = new System.Drawing.Point(10, 41);
+            this.findDuplicateButton.Name = "findDuplicateButton";
+            this.findDuplicateButton.Size = new System.Drawing.Size(99, 23);
+            this.findDuplicateButton.TabIndex = 0;
+            this.findDuplicateButton.Text = "Find Duplicates";
+            this.findDuplicateButton.UseVisualStyleBackColor = true;
+            this.findDuplicateButton.Click += new System.EventHandler(this.findDuplicateButton_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(153, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Total number of duplicate array";
             // 
             // ArrayExercise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 423);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -248,6 +283,8 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -272,6 +309,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button copyButton;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button findDuplicateButton;
     }
 }
 
