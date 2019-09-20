@@ -146,7 +146,7 @@ namespace LabTestExercise
             double sum = TotalGPA();
             double avg = sum / ids.Count;
 
-            avgPointTextBox.Text = avg + "";
+            avgPointTextBox.Text = avg.ToString("##.##");
         }
         private void MinGPA()
         {

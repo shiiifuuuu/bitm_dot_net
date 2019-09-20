@@ -30,8 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.showButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
+            this.addressTextBox = new System.Windows.Forms.RichTextBox();
             this.gpaPointTextBox = new System.Windows.Forms.TextBox();
             this.ageTextBox = new System.Windows.Forms.TextBox();
             this.mobileTextBox = new System.Windows.Forms.TextBox();
@@ -42,6 +41,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.showButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.mobileRadioButton = new System.Windows.Forms.RadioButton();
             this.nameRadioButton = new System.Windows.Forms.RadioButton();
@@ -61,7 +62,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.outputRichTextBox = new System.Windows.Forms.RichTextBox();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
-            this.addressTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
@@ -97,25 +97,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Information";
             // 
-            // showButton
+            // addressTextBox
             // 
-            this.showButton.Location = new System.Drawing.Point(601, 233);
-            this.showButton.Name = "showButton";
-            this.showButton.Size = new System.Drawing.Size(96, 23);
-            this.showButton.TabIndex = 18;
-            this.showButton.Text = "Show All";
-            this.showButton.UseVisualStyleBackColor = true;
-            this.showButton.Click += new System.EventHandler(this.showButton_Click);
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(601, 56);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(96, 23);
-            this.addButton.TabIndex = 16;
-            this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addressTextBox.Location = new System.Drawing.Point(100, 133);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(250, 75);
+            this.addressTextBox.TabIndex = 15;
+            this.addressTextBox.Text = "";
             // 
             // gpaPointTextBox
             // 
@@ -204,6 +192,26 @@
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Name";
+            // 
+            // showButton
+            // 
+            this.showButton.Location = new System.Drawing.Point(601, 233);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(96, 23);
+            this.showButton.TabIndex = 18;
+            this.showButton.Text = "Show All";
+            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(601, 56);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(96, 23);
+            this.addButton.TabIndex = 16;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // searchButton
             // 
@@ -393,14 +401,6 @@
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Search By";
             // 
-            // addressTextBox
-            // 
-            this.addressTextBox.Location = new System.Drawing.Point(100, 133);
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(250, 75);
-            this.addressTextBox.TabIndex = 15;
-            this.addressTextBox.Text = "";
-            // 
             // LabTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,7 +413,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.outputRichTextBox);
             this.Name = "LabTestForm";
-            this.Text = "Lab Test Exercise";
+            this.Text = "Assignment 5";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
