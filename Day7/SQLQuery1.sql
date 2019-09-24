@@ -17,7 +17,8 @@ INSERT INTO item VALUES (3, 'Hot', 90)
 
 DROP TABLE item
 
-CREATE TABLE items(
+CREATE TABLE items
+(
 ID	INT IDENTITY(1,1),
 name	VARCHAR(50),
 price	FLOAT
