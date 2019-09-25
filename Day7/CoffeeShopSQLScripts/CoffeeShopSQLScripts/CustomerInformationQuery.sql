@@ -22,6 +22,6 @@ VALUES
 (1, 'Ibrahim', '+8801757811236', 'Shani Akhra');
 
 
-DELETE FROM CustomerInformation WHERE ID=2
+DELETE FROM CustomerInformation WHERE ID=2;
 
-DROP TABLE CustomerInformation
+DROP TABLE CustomerInformation;
