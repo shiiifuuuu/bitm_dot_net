@@ -98,7 +98,7 @@
             this.showDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.showDataGridView.Location = new System.Drawing.Point(284, 70);
             this.showDataGridView.Name = "showDataGridView";
-            this.showDataGridView.Size = new System.Drawing.Size(472, 150);
+            this.showDataGridView.Size = new System.Drawing.Size(374, 150);
             this.showDataGridView.TabIndex = 5;
             // 
             // deleteButton
