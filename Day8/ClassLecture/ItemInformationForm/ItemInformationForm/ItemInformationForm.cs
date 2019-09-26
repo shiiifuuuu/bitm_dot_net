@@ -60,5 +60,23 @@ namespace ItemInformationForm
             sqlConnection.Close();
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            //Command
+            string commandString = @"DELETE FROM Items WHERE ID = " + idTextBox.Text;
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            //Open
+            sqlConnection.Open();
+
+            //Show
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            showDataGridView.DataSource = dataTable;
+
+            //Close
+            sqlConnection.Close();
+        }
     }
 }

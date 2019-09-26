@@ -35,6 +35,9 @@
             this.addButton = new System.Windows.Forms.Button();
             this.showButton = new System.Windows.Forms.Button();
             this.showDataGridView = new System.Windows.Forms.DataGridView();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +75,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(188, 162);
+            this.addButton.Location = new System.Drawing.Point(284, 226);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 3;
@@ -82,7 +85,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(188, 191);
+            this.showButton.Location = new System.Drawing.Point(365, 226);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 4;
@@ -98,16 +101,45 @@
             this.showDataGridView.Size = new System.Drawing.Size(472, 150);
             this.showDataGridView.TabIndex = 5;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(446, 226);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 6;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(75, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "ID";
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(163, 155);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.idTextBox.TabIndex = 2;
+            // 
             // ItemInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.showDataGridView);
             this.Controls.Add(this.showButton);
             this.Controls.Add(this.addButton);
+            this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.priceTextBox);
             this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ItemInformationForm";
@@ -128,6 +160,9 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button showButton;
         private System.Windows.Forms.DataGridView showDataGridView;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox idTextBox;
     }
 }
 
