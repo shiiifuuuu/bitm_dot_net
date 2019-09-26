@@ -56,18 +56,18 @@ Address varchar(30)
 SELECT * FROM customer
 
 INSERT INTO customer (Name, Contact, Address)
-VALUES ('Shahadat', 01757814608, 'Dhaka')
-INSERT INTO customer VALUES ('Adnan', '01236547851', 'Shamoly')
-INSERT INTO customer VALUES ('Saykat', '32132543131', 'Kollanpur')
-INSERT INTO customer VALUES ('Raqib', '16541341645', 'Dhanmondi')
-INSERT INTO customer VALUES ('Shad', '017578456408', 'Mirpur')
+VALUES ('Shahadat', 01757814608, 'Dhaka');
+INSERT INTO customer VALUES ('Adnan', '01236547851', 'Shamoly');
+INSERT INTO customer VALUES ('Saykat', '32132543131', 'Kollanpur');
+INSERT INTO customer VALUES ('Raqib', '16541341645', 'Dhanmondi');
+INSERT INTO customer VALUES ('Shad', '017578456408', 'Mirpur');
 
 DROP TABLE customer
 
-INSERT INTO customer VALUES ('Adnan', '01236547851', 'Shamoly')
-INSERT INTO customer VALUES ('Saykat', '32132543131', 'Kollanpur')
-INSERT INTO customer VALUES ('Raqib', '16541341645', 'Dhanmondi')
-INSERT INTO customer VALUES ('Shad', '017578456408', 'Mirpur')
+INSERT INTO customer VALUES ('Adnan', '01236547851', 'Shamoly');
+INSERT INTO customer VALUES ('Saykat', '32132543131', 'Kollanpur');
+INSERT INTO customer VALUES ('Raqib', '16541341645', 'Dhanmondi');
+INSERT INTO customer VALUES ('Shad', '017578456408', 'Mirpur');
 
 UPDATE customer 
 SET Name = 'AAAA'

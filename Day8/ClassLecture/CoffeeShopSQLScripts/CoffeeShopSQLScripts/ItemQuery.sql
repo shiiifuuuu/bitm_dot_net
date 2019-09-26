@@ -1,0 +1,28 @@
+CREATE TABLE Item
+(
+ID INT IDENTITY(1,1),
+Name VARCHAR(MAX) NOT NULL,
+Price FLOAT
+);
+
+SELECT * FROM Item;
+
+INSERT INTO 
+Item
+VALUES
+('Black', 120);
+
+INSERT INTO 
+Item
+VALUES
+('Hot', 100);
+
+INSERT INTO 
+Item
+VALUES
+('Cold', 90);
+
+INSERT INTO 
+Item
+VALUES
+('Regular', 80);
