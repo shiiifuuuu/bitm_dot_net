@@ -24,3 +24,6 @@ WHERE ID = 3;
 
 SELECT * FROM Orders
 WHERE OrderItem LIKE 'c%'
+
+DELETE FROM Orders
+WHERE ID=1;
