@@ -23,7 +23,7 @@ namespace Assignment6
         private void ItemForm_Load(object sender, EventArgs e)
         {
             //Database Connection
-            String connectionString = @"Server=PC-301-21\SQLEXPRESS; Database=CoffeeShopCRUD; Integrated Security=True";
+            String connectionString = @"Server=SHIIIFUUUU; Database=CoffeeShopCRUD; Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
 
@@ -319,7 +319,7 @@ namespace Assignment6
             if (!Char.IsDigit(chr) && chr != 8 && chr != 46)
             {
                 e.Handled = true;
-                MessageBox.Show("input only numeric value");
+                MessageBox.Show("input valid gpa");
             }
         }
     }
