@@ -56,10 +56,8 @@ namespace Assignment6
             bool isAdded = false;
             try
             {
-                String commandString = @"INSERT INTO 
-	                                    Items (ItemName, Price)
-                                    VALUES
-	                                    ('" + name + "', " + price + ")";
+                String commandString = @"INSERT INTO Items (ItemName, Price) VALUES ('" + name + "', " + price + ");" +
+                    "INSERT INTO Orders (OrderItem) VALUES ('"+name+"')";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
