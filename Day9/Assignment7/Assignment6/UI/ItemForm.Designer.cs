@@ -135,6 +135,7 @@
             // 
             // showDataGridView
             // 
+            this.showDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.showDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.showDataGridView.Location = new System.Drawing.Point(12, 285);
             this.showDataGridView.Name = "showDataGridView";
