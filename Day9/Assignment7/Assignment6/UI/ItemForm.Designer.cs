@@ -303,7 +303,6 @@
             this.Controls.Add(this.showDataGridView);
             this.Name = "ItemForm";
             this.Text = "Item";
-            this.Load += new System.EventHandler(this.ItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -326,6 +326,7 @@
             // 
             // showDataGridView
             // 
+            this.showDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.showDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.showDataGridView.Location = new System.Drawing.Point(12, 287);
             this.showDataGridView.Name = "showDataGridView";
@@ -345,7 +346,6 @@
             this.Controls.Add(this.showDataGridView);
             this.Name = "OrderForm";
             this.Text = "OrderForm";
-            this.Load += new System.EventHandler(this.OrderForm_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);

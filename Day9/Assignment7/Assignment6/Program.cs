@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assignment6.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,9 +17,9 @@ namespace Assignment6
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //            Application.Run(new ItemForm());
+            Application.Run(new ItemForm());
             //Application.Run(new OrderForm());
-            Application.Run(new CustomerForm());
+            //Application.Run(new CustomerForm());
         }
     }
 }

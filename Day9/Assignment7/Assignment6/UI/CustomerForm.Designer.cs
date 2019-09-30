@@ -1,4 +1,4 @@
-﻿namespace Assignment6
+﻿namespace Assignment6.UI
 {
     partial class CustomerForm
     {
@@ -65,6 +65,7 @@
             // 
             // showDataGridView
             // 
+            this.showDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.showDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.showDataGridView.Location = new System.Drawing.Point(12, 283);
             this.showDataGridView.Name = "showDataGridView";
@@ -343,7 +344,6 @@
             this.Controls.Add(this.groupBox4);
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
-            this.Load += new System.EventHandler(this.CustomerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
