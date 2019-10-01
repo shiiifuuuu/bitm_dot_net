@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.updateItemPriceTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,18 +50,18 @@
             this.showButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.addButton = new System.Windows.Forms.Button();
-            this.itemPriceTextBox = new System.Windows.Forms.TextBox();
             this.orderItemQuantityTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.orderItemNameTextBox = new System.Windows.Forms.TextBox();
             this.showDataGridView = new System.Windows.Forms.DataGridView();
+            this.itemComboBox = new System.Windows.Forms.ComboBox();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -249,13 +250,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.itemComboBox);
             this.groupBox1.Controls.Add(this.addButton);
-            this.groupBox1.Controls.Add(this.itemPriceTextBox);
             this.groupBox1.Controls.Add(this.orderItemQuantityTextBox);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.orderItemNameTextBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(259, 158);
@@ -273,17 +272,9 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // itemPriceTextBox
-            // 
-            this.itemPriceTextBox.Location = new System.Drawing.Point(91, 65);
-            this.itemPriceTextBox.Name = "itemPriceTextBox";
-            this.itemPriceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.itemPriceTextBox.TabIndex = 6;
-            this.itemPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.itemPriceTextBox_KeyPress);
-            // 
             // orderItemQuantityTextBox
             // 
-            this.orderItemQuantityTextBox.Location = new System.Drawing.Point(91, 91);
+            this.orderItemQuantityTextBox.Location = new System.Drawing.Point(91, 74);
             this.orderItemQuantityTextBox.Name = "orderItemQuantityTextBox";
             this.orderItemQuantityTextBox.Size = new System.Drawing.Size(100, 20);
             this.orderItemQuantityTextBox.TabIndex = 6;
@@ -298,31 +289,14 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Item Name";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 68);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Item Price";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 94);
+            this.label2.Location = new System.Drawing.Point(39, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Quantity";
-            // 
-            // orderItemNameTextBox
-            // 
-            this.orderItemNameTextBox.Location = new System.Drawing.Point(91, 36);
-            this.orderItemNameTextBox.Name = "orderItemNameTextBox";
-            this.orderItemNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.orderItemNameTextBox.TabIndex = 6;
-            this.orderItemNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.orderItemNameTextBox_KeyPress);
             // 
             // showDataGridView
             // 
@@ -332,6 +306,21 @@
             this.showDataGridView.Name = "showDataGridView";
             this.showDataGridView.Size = new System.Drawing.Size(524, 263);
             this.showDataGridView.TabIndex = 12;
+            // 
+            // itemComboBox
+            // 
+            this.itemComboBox.DataSource = this.itemBindingSource;
+            this.itemComboBox.DisplayMember = "Name";
+            this.itemComboBox.FormattingEnabled = true;
+            this.itemComboBox.Location = new System.Drawing.Point(91, 36);
+            this.itemComboBox.Name = "itemComboBox";
+            this.itemComboBox.Size = new System.Drawing.Size(121, 21);
+            this.itemComboBox.TabIndex = 7;
+            this.itemComboBox.ValueMember = "ID";
+            // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(Assignment6.MODEL.Item);
             // 
             // OrderForm
             // 
@@ -346,6 +335,7 @@
             this.Controls.Add(this.showDataGridView);
             this.Name = "OrderForm";
             this.Text = "OrderForm";
+            this.Load += new System.EventHandler(this.OrderForm_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -355,6 +345,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,13 +372,12 @@
         private System.Windows.Forms.TextBox orderItemQuantityTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox orderItemNameTextBox;
         private System.Windows.Forms.DataGridView showDataGridView;
         private System.Windows.Forms.TextBox updateItemQuantityTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox itemPriceTextBox;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox updateItemPriceTextBox;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox itemComboBox;
+        private System.Windows.Forms.BindingSource itemBindingSource;
     }
 }

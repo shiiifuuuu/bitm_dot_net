@@ -218,5 +218,10 @@ namespace Assignment6
             }
             return isFloat;
         }
+
+        private void OrderForm_Load(object sender, EventArgs e)
+        {
+            itemComboBox.DataSource = 
+        }
     }
 }

@@ -152,5 +152,33 @@ namespace Assignment6.REPOSITORY
                 return dataTable;
             }
         }
+
+        public DataTable ItemComboShow()
+        {
+            bool trySuccess = false;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                String commandString = @"SELECT * FROM Orders";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+                trySuccess = true;
+                sqlConnection.Close();
+            }
+            catch { }
+            if (trySuccess)
+            {
+                return dataTable;
+            }
+            else
+            {
+                dataTable = null;
+                return dataTable;
+            }
+        }
     }
 }

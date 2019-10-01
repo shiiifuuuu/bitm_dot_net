@@ -182,6 +182,7 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Item";
+           
             // 
             // groupBox2
             // 

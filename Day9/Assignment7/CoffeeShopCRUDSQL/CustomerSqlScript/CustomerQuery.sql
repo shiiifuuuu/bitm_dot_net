@@ -2,8 +2,8 @@ USE CoffeeShopCRUD;
 
 CREATE TABLE Customers
 (
-	ID int IDENTITY(1,1) Primary Key,
-	CustomerName VARCHAR(25) NOT NULL,
+	ID int IDENTITY(1,1) PRIMARY KEY,
+	Name VARCHAR(25) NOT NULL,
 	Contact VARCHAR(11) NOT NULL,
 	Address VARCHAR(100) NOT NULL
 );

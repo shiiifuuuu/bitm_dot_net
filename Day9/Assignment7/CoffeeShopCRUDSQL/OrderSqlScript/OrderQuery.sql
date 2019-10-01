@@ -3,27 +3,36 @@ USE CoffeeShopCRUD;
 CREATE TABLE Orders
 (
 	ID int IDENTITY(1,1) Primary Key,
-	OrderItem VARCHAR(15) NOT NULL,
+	ItemName VARCHAR(15) NOT NULL,
 	Quantity INT,
 	TotalPrice FLOAT
 );
 
-DROP TABLE Orders;
+CREATE TABLE Orders
+(
+ID INT IDENTITY(1,1) PRIMARY KEY,
+CustomerId INT FOREIGN KEY REFERENCES Customers(ID) ,
+ItemId INT,
+Quantity INT,
+TotalPrice FLOAT
+)
 
+DROP TABLE Orders;
+SELECT * FROM Customers;
 SELECT * FROM Orders;
 
 INSERT INTO 
-	Orders (OrderItem, Quantity, TotalPrice)
+	Orders (ItemName, Quantity, TotalPrice)
 VALUES
 	('Black', 5, 600);
 
 UPDATE Orders
 SET
-OrderItem = 'Black', Quantity = 6, TotalPrice = 120
+ItemName = 'Black', Quantity = 6, TotalPrice = 120
 WHERE ID = 3;
 
 SELECT * FROM Orders
-WHERE OrderItem LIKE 'c%'
+WHERE ItemName LIKE 'c%'
 
 DELETE FROM Orders
 WHERE ID=1;
