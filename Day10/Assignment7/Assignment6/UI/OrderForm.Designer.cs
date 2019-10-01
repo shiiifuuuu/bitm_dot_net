@@ -30,14 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.updateItemPriceTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.updateItemQuantityTextBox = new System.Windows.Forms.TextBox();
             this.updateItemIdTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.updateItemNameTextBox = new System.Windows.Forms.TextBox();
             this.updateButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,8 +51,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.showDataGridView = new System.Windows.Forms.DataGridView();
-            this.itemComboBox = new System.Windows.Forms.ComboBox();
+            this.addItemComboBox = new System.Windows.Forms.ComboBox();
             this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.updateItemComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -66,14 +64,12 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.updateItemPriceTextBox);
-            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.updateItemComboBox);
             this.groupBox4.Controls.Add(this.updateItemQuantityTextBox);
             this.groupBox4.Controls.Add(this.updateItemIdTextBox);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.updateItemNameTextBox);
             this.groupBox4.Controls.Add(this.updateButton);
             this.groupBox4.Location = new System.Drawing.Point(277, 15);
             this.groupBox4.Name = "groupBox4";
@@ -82,26 +78,9 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Update Order";
             // 
-            // updateItemPriceTextBox
-            // 
-            this.updateItemPriceTextBox.Location = new System.Drawing.Point(103, 52);
-            this.updateItemPriceTextBox.Name = "updateItemPriceTextBox";
-            this.updateItemPriceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.updateItemPriceTextBox.TabIndex = 10;
-            this.updateItemPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.updateItemPriceTextBox_KeyPress);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(43, 55);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Item Price";
-            // 
             // updateItemQuantityTextBox
             // 
-            this.updateItemQuantityTextBox.Location = new System.Drawing.Point(103, 78);
+            this.updateItemQuantityTextBox.Location = new System.Drawing.Point(103, 53);
             this.updateItemQuantityTextBox.Name = "updateItemQuantityTextBox";
             this.updateItemQuantityTextBox.Size = new System.Drawing.Size(100, 20);
             this.updateItemQuantityTextBox.TabIndex = 8;
@@ -109,7 +88,7 @@
             // 
             // updateItemIdTextBox
             // 
-            this.updateItemIdTextBox.Location = new System.Drawing.Point(103, 104);
+            this.updateItemIdTextBox.Location = new System.Drawing.Point(103, 79);
             this.updateItemIdTextBox.Name = "updateItemIdTextBox";
             this.updateItemIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.updateItemIdTextBox.TabIndex = 6;
@@ -118,7 +97,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 81);
+            this.label3.Location = new System.Drawing.Point(51, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 7;
@@ -136,23 +115,15 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(79, 104);
+            this.label8.Location = new System.Drawing.Point(79, 79);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(18, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "ID";
             // 
-            // updateItemNameTextBox
-            // 
-            this.updateItemNameTextBox.Location = new System.Drawing.Point(103, 26);
-            this.updateItemNameTextBox.Name = "updateItemNameTextBox";
-            this.updateItemNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.updateItemNameTextBox.TabIndex = 6;
-            this.updateItemNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.updateItemNameTextBox_KeyPress);
-            // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(128, 130);
+            this.updateButton.Location = new System.Drawing.Point(128, 117);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 3;
@@ -250,7 +221,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.itemComboBox);
+            this.groupBox1.Controls.Add(this.addItemComboBox);
             this.groupBox1.Controls.Add(this.addButton);
             this.groupBox1.Controls.Add(this.orderItemQuantityTextBox);
             this.groupBox1.Controls.Add(this.label1);
@@ -307,20 +278,31 @@
             this.showDataGridView.Size = new System.Drawing.Size(524, 263);
             this.showDataGridView.TabIndex = 12;
             // 
-            // itemComboBox
+            // addItemComboBox
             // 
-            this.itemComboBox.DataSource = this.itemBindingSource;
-            this.itemComboBox.DisplayMember = "Name";
-            this.itemComboBox.FormattingEnabled = true;
-            this.itemComboBox.Location = new System.Drawing.Point(91, 36);
-            this.itemComboBox.Name = "itemComboBox";
-            this.itemComboBox.Size = new System.Drawing.Size(121, 21);
-            this.itemComboBox.TabIndex = 7;
-            this.itemComboBox.ValueMember = "ID";
+            this.addItemComboBox.DataSource = this.itemBindingSource;
+            this.addItemComboBox.DisplayMember = "Name";
+            this.addItemComboBox.FormattingEnabled = true;
+            this.addItemComboBox.Location = new System.Drawing.Point(91, 36);
+            this.addItemComboBox.Name = "addItemComboBox";
+            this.addItemComboBox.Size = new System.Drawing.Size(121, 21);
+            this.addItemComboBox.TabIndex = 7;
+            this.addItemComboBox.ValueMember = "ID";
             // 
             // itemBindingSource
             // 
             this.itemBindingSource.DataSource = typeof(Assignment6.MODEL.Item);
+            // 
+            // updateItemComboBox
+            // 
+            this.updateItemComboBox.DataSource = this.itemBindingSource;
+            this.updateItemComboBox.DisplayMember = "Name";
+            this.updateItemComboBox.FormattingEnabled = true;
+            this.updateItemComboBox.Location = new System.Drawing.Point(103, 26);
+            this.updateItemComboBox.Name = "updateItemComboBox";
+            this.updateItemComboBox.Size = new System.Drawing.Size(121, 21);
+            this.updateItemComboBox.TabIndex = 8;
+            this.updateItemComboBox.ValueMember = "ID";
             // 
             // OrderForm
             // 
@@ -356,7 +338,6 @@
         private System.Windows.Forms.TextBox updateItemIdTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox updateItemNameTextBox;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
@@ -375,9 +356,8 @@
         private System.Windows.Forms.DataGridView showDataGridView;
         private System.Windows.Forms.TextBox updateItemQuantityTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox updateItemPriceTextBox;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox itemComboBox;
+        private System.Windows.Forms.ComboBox addItemComboBox;
         private System.Windows.Forms.BindingSource itemBindingSource;
+        private System.Windows.Forms.ComboBox updateItemComboBox;
     }
 }

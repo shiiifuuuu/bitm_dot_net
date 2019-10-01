@@ -16,7 +16,6 @@ namespace Assignment6
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            String itemName = orderItemNameTextBox.Text;
             String itemQuantity = orderItemQuantityTextBox.Text;
             String itemPrice = itemPriceTextBox.Text;
             if (String.IsNullOrEmpty(itemName) || String.IsNullOrEmpty(itemQuantity))
@@ -221,7 +220,7 @@ namespace Assignment6
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
-            itemComboBox.DataSource = 
+            addItemComboBox.DataSource = 
         }
     }
 }
