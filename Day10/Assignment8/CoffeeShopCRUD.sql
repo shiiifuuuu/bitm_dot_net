@@ -54,3 +54,14 @@ INSERT INTO Orders (CustomerId, ItemId, Quantity, Price) VALUES (4, 4 , 4, 400)
 SELECT o.Id, c.Name AS Customer, i.Name AS Item, Quantity, o.Price AS TotalPrice FROM Orders AS o
 LEFT JOIN Customers AS c ON c.Id = o.CustomerId
 LEFT JOIN Items AS i ON i.Id = o.ItemId
+
+SELECT DISTINCT i.Name FROM Orders AS o
+LEFT JOIN Items AS i ON i.Id = o.ItemId
+
+SELECT c.Name AS Customer FROM Orders AS o
+LEFT JOIN Customers AS c ON c.Id = o.CustomerId
+LEFT JOIN Items AS i ON i.Id = o.ItemId
+
+SELECT o.Id, CustomerId, ItemId, c.Name AS Customer, i.Name AS Item, Quantity, o.Price AS TotalPrice FROM Orders AS o
+LEFT JOIN Customers AS c ON c.Id = o.CustomerId
+LEFT JOIN Items AS i ON i.Id = o.ItemId
