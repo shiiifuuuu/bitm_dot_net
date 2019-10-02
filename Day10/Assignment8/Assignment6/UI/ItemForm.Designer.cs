@@ -46,10 +46,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.searchItemTextBox = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.updateItemIdTextBox = new System.Windows.Forms.TextBox();
             this.updateItemPriceTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.updateItemNameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).BeginInit();
@@ -141,6 +139,7 @@
             this.showDataGridView.Name = "showDataGridView";
             this.showDataGridView.Size = new System.Drawing.Size(524, 263);
             this.showDataGridView.TabIndex = 7;
+            this.showDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellDoubleClick);
             // 
             // label4
             // 
@@ -161,7 +160,7 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(116, 114);
+            this.updateButton.Location = new System.Drawing.Point(116, 88);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 3;
@@ -182,7 +181,6 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Item";
-           
             // 
             // groupBox2
             // 
@@ -227,10 +225,8 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.updateItemIdTextBox);
             this.groupBox4.Controls.Add(this.updateItemPriceTextBox);
             this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.updateItemNameTextBox);
             this.groupBox4.Controls.Add(this.updateButton);
@@ -240,14 +236,6 @@
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Update Item";
-            // 
-            // updateItemIdTextBox
-            // 
-            this.updateItemIdTextBox.Location = new System.Drawing.Point(91, 88);
-            this.updateItemIdTextBox.Name = "updateItemIdTextBox";
-            this.updateItemIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.updateItemIdTextBox.TabIndex = 6;
-            this.updateItemIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.updateItemIdTextBox_KeyPress);
             // 
             // updateItemPriceTextBox
             // 
@@ -265,15 +253,6 @@
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Item Name";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(67, 88);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(18, 13);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "ID";
             // 
             // label7
             // 
@@ -338,10 +317,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox searchItemTextBox;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox updateItemIdTextBox;
         private System.Windows.Forms.TextBox updateItemPriceTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox updateItemNameTextBox;
     }

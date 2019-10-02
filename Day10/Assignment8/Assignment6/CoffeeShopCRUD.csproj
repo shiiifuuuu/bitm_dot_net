@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="MANAGER\ItemManager.cs" />
     <Compile Include="MANAGER\OrderManager.cs" />
+    <Compile Include="MODEL\Customer.cs" />
     <Compile Include="MODEL\Item.cs" />
+    <Compile Include="MODEL\Order.cs" />
     <Compile Include="REPOSITORY\ItemRepository.cs" />
     <Compile Include="REPOSITORY\OrderRepository.cs" />
     <Compile Include="UI\CustomerForm.cs">
@@ -91,7 +93,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Assignment6.MODEL.Customer.datasource" />
     <None Include="Properties\DataSources\Assignment6.MODEL.Item.datasource" />
+    <None Include="Properties\DataSources\Assignment6.MODEL.Order.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

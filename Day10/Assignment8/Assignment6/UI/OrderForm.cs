@@ -2,28 +2,38 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+using Assignment6.MODEL;
 
 namespace Assignment6
 {
     public partial class OrderForm : Form
     {
         private OrderManager _orderManager = new OrderManager();
+        private Order _order = new Order();
 
         public OrderForm()
         {
             InitializeComponent();
         }
 
+        private void OrderForm_Load(object sender, EventArgs e)
+        {
+            addCustomerComboBox.DataSource = _orderManager.CustomerComboShow();
+            addItemComboBox.DataSource = _orderManager.ItemComboShow();
+        }
+
         private void addButton_Click(object sender, EventArgs e)
         {
-            String itemQuantity = orderItemQuantityTextBox.Text;
-            String itemPrice = itemPriceTextBox.Text;
-            if (String.IsNullOrEmpty(itemName) || String.IsNullOrEmpty(itemQuantity))
+            _order.CustomerId = addCustomerComboBox.SelectedValue.ToString();  
+            _order.ItemId = addItemComboBox.SelectedValue.ToString();
+            _order.Quantity = orderItemQuantityTextBox.Text;
+
+            if (String.IsNullOrEmpty(_order.Quantity))
             {
-                MessageBox.Show("Both item name, quantity and item price must be inserted!");
+                MessageBox.Show("Quantity can not be empty!");
                 return;
             }
-            if (_orderManager.AddOrder(itemName, itemQuantity, itemPrice))
+            if (_orderManager.AddOrder(_order))
             {
                 MessageBox.Show("Order Added Successfully!");
             }
@@ -34,18 +44,15 @@ namespace Assignment6
         }
         private void updateButton_Click(object sender, EventArgs e)
         {
-            String itemName = updateItemNameTextBox.Text;
-            String itemPrice = updateItemPriceTextBox.Text;
             String itemQuantity = updateItemQuantityTextBox.Text;
-            String itemId = updateItemIdTextBox.Text;
 
-            if (String.IsNullOrEmpty(itemName) || String.IsNullOrEmpty(itemPrice) || String.IsNullOrEmpty(itemQuantity) || String.IsNullOrEmpty(itemId))
+            if (String.IsNullOrEmpty(itemQuantity))
             {
                 MessageBox.Show("Order name, price, quantity and ID must be inserted!");
                 return;
             }
 
-            if (_orderManager.UpdateOrder(itemName, itemPrice, itemQuantity, itemId))
+            if (_orderManager.UpdateOrder(itemQuantity))
             {
                 MessageBox.Show("Order Updated Successfully!");
             }
@@ -216,11 +223,6 @@ namespace Assignment6
                 isFloat = true;
             }
             return isFloat;
-        }
-
-        private void OrderForm_Load(object sender, EventArgs e)
-        {
-            addItemComboBox.DataSource = 
         }
     }
 }

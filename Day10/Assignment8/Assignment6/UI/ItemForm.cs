@@ -42,9 +42,8 @@ namespace Assignment6
         {
             _item.Name = updateItemNameTextBox.Text;
             _item.Price = updateItemPriceTextBox.Text;
-            _item.ID = updateItemIdTextBox.Text;
 
-            if (String.IsNullOrEmpty(_item.Name) || String.IsNullOrEmpty(_item.Price) || String.IsNullOrEmpty(_item.ID))
+            if (String.IsNullOrEmpty(_item.Name) || String.IsNullOrEmpty(_item.Price) )
             {
                 MessageBox.Show("Item name, price and ID must be inserted!");
                 return;
@@ -58,8 +57,19 @@ namespace Assignment6
             {
                 MessageBox.Show("Error! Item could not be updated");
             }
-
         }
+
+        private void showDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (showDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                showDataGridView.CurrentRow.Selected = true;
+                updateItemNameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                updateItemPriceTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+                _item.ID = showDataGridView.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+            }
+        }
+
         private void deleteButton_Click(object sender, EventArgs e)
         {
             _item.ID = deleteItemIdTextBox.Text;
@@ -206,6 +216,5 @@ namespace Assignment6
             return isFloat;
         }
 
-        
     }
 }

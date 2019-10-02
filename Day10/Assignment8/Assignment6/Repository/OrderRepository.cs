@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assignment6.MODEL;
 
 namespace Assignment6.REPOSITORY
 {
@@ -18,16 +19,15 @@ namespace Assignment6.REPOSITORY
             sqlConnection = new SqlConnection(connectionString);
         }
 
-        public bool AddOrder(String name, String quantity, String price)
+        public bool AddOrder(Order _order)
         {
             bool isAdded = false;
             try
             {
-                float totalPrice = float.Parse(price) * int.Parse(quantity);
                 String commandString = @"INSERT INTO 
-	                                            Orders (OrderItem, Quantity, TotalPrice)
+	                                            Orders (CustomerId, ItemId, Quantity)
                                             VALUES
-	                                            ('" + name + "', " + quantity + ", " + totalPrice + ")";
+	                                            ('" + _order.CustomerId + "', '" + _order.ItemId + "', '" + _order.Quantity + "')";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -38,8 +38,6 @@ namespace Assignment6.REPOSITORY
                 }
 
                 sqlConnection.Close();
-
-
             }
             catch { }
 
@@ -76,26 +74,26 @@ namespace Assignment6.REPOSITORY
                 return dataTable;
             }
         }
-        public bool UpdateOrder(String name, String price, String quantity, String id)
+        public bool UpdateOrder(String quantity)
         {
             bool isUpdated = false;
             try
             {
-                float totalPrice = float.Parse(price) * int.Parse(quantity);
-                String commandString = @"UPDATE Orders
-                                            SET
-                                            OrderItem = '" + name + "', " +
-                                            "Quantity = " + quantity + ", " +
-                                            "TotalPrice = " + totalPrice + " " +
-                                            "WHERE ID = " + id + "";
-                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+                //float totalPrice = float.Parse(price) * int.Parse(quantity);
+                //String commandString = @"UPDATE Orders
+                //                            SET
+                //                            OrderItem = '" + name + "', " +
+                //                            "Quantity = " + quantity + ", " +
+                //                            "TotalPrice = " + totalPrice + " " +
+                //                            "WHERE Id = " + id + "";
+                //SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
 
-                if (sqlCommand.ExecuteNonQuery() > 0)
-                {
-                    isUpdated = true;
-                }
+                //if (sqlCommand.ExecuteNonQuery() > 0)
+                //{
+                //    isUpdated = true;
+                //}
                 sqlConnection.Close();
 
             }
@@ -109,7 +107,7 @@ namespace Assignment6.REPOSITORY
             try
             {
                 String commandString = @"DELETE FROM Orders
-                                         WHERE ID='" + id + "'";
+                                         WHERE Id='" + id + "'";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -159,7 +157,34 @@ namespace Assignment6.REPOSITORY
             DataTable dataTable = new DataTable();
             try
             {
-                String commandString = @"SELECT * FROM Orders";
+                String commandString = @"SELECT Id, Name FROM Items";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+                trySuccess = true;
+                sqlConnection.Close();
+            }
+            catch { }
+            if (trySuccess)
+            {
+                return dataTable;
+            }
+            else
+            {
+                dataTable = null;
+                return dataTable;
+            }
+        }
+        public DataTable CustomerComboShow()
+        {
+            bool trySuccess = false;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                String commandString = @"SELECT Id, Name FROM Customers";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();

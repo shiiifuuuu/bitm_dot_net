@@ -16,7 +16,7 @@ namespace Assignment6.REPOSITORY
         public ItemRepository()
         {
             //Database Connection
-            String connectionString = @"Server=PC-301-21\SQLEXPRESS; Database=CoffeeShopCRUD; Integrated Security=True";
+            String connectionString = @"Server=SHIIIFUUUU; Database=CoffeeShopCRUD; Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
 
@@ -109,7 +109,7 @@ namespace Assignment6.REPOSITORY
             try
             {
                 String commandString = @"DELETE FROM Items
-                                         WHERE ID='" + _item.ID + "'";
+                                         WHERE Id = '" + _item.ID + "'";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -165,7 +165,7 @@ namespace Assignment6.REPOSITORY
                 String commandString = @"UPDATE ITEMS 
 	                                    SET Name = '" + _item.Name + "', " +
                                             "Price =  " + _item.Price + " " +
-                                            "WHERE ID = '" + _item.ID + "' ";
+                                            "WHERE Id = '" + _item.ID + "' ";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
