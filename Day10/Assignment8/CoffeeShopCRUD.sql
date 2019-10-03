@@ -75,6 +75,6 @@ WHERE ItemId = 2
 SELECT o.Id, c.Name AS Customer, i.Name AS Item, i.Price, Quantity, o.Price AS TotalPrice FROM Orders AS o
 LEFT JOIN Customers AS c ON c.Id = o.CustomerId
 LEFT JOIN Items AS i ON i.Id = o.ItemId
-WHERE c.Name LIKE 'Al%' OR i.Name LIKE 'sdf%'
+WHERE c.Name LIKE 'Al%' OR i.Name LIKE 'sdf%' OR o.Price LIKE '2%'
 
 SELECT * From Orders WHERE Price LIKE '120%'
