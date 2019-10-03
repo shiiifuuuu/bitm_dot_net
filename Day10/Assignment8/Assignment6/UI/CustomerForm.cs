@@ -2,12 +2,14 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+using Assignment6.MODEL;
 
 namespace Assignment6.UI
 {
     public partial class CustomerForm : Form
     {
         private CustomerManager _customerManager = new CustomerManager();
+        private Customer _customer = new Customer();
 
         public CustomerForm()
         {
@@ -17,37 +19,37 @@ namespace Assignment6.UI
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            String name = customerNameTextBox.Text;
-            String contact = contactTextBox.Text;
-            String address = addressTextBox.Text;
+            _customer.Name = customerNameTextBox.Text;
+            _customer.Contact = contactTextBox.Text;
+            _customer.Address = addressTextBox.Text;
 
-            if(String.IsNullOrEmpty(name) || String.IsNullOrEmpty(contact))
+            if(String.IsNullOrEmpty(_customer.Name) || String.IsNullOrEmpty(_customer.Contact))
             {
                 MessageBox.Show("Both name and contact must be inserted!");
                 return;
             }
-            if (_customerManager.isCustomerExist(name))
+            if (_customerManager.isCustomerExist(_customer))
             {
-                MessageBox.Show("Customer " + name + " already exist in your database!");
+                MessageBox.Show("Customer " + _customer.Name + " already exist in your database!");
                 return;
             }
 
-            bool customerAdded = _customerManager.AddCustomer(name, contact, address);
+            bool customerAdded = _customerManager.AddCustomer(_customer);
 
             if (customerAdded)
             {
-                MessageBox.Show(name + " customer added Successfully.");
+                MessageBox.Show(_customer.Name + " customer added Successfully.");
             }
         }
         private void searchButton_Click(object sender, EventArgs e)
         {
-            String name = searchCustomerTextBox.Text;
-            if (String.IsNullOrEmpty(name))
+            String searchText = searchCustomerTextBox.Text;
+            if (String.IsNullOrEmpty(searchText))
             {
                 MessageBox.Show("Insert customer name for Searching");
                 return;
             }
-            DataTable dataTable = _customerManager.SearchCustomer(name);
+            DataTable dataTable = _customerManager.SearchCustomer(searchText);
             if (dataTable != null)
             {
                 MessageBox.Show("Customer Found!");
@@ -60,18 +62,17 @@ namespace Assignment6.UI
         }
         private void updateButton_Click(object sender, EventArgs e)
         {
-            String name = updateNameTextBox.Text;
-            String contact = updateContactTextBox.Text;
-            String address = updateAddressTextBox.Text;
-            String id = updateIdTextBox.Text;
+            _customer.Name = updateNameTextBox.Text;
+            _customer.Contact = updateContactTextBox.Text;
+            _customer.Address = updateAddressTextBox.Text;
 
-            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(contact) || String.IsNullOrEmpty(id))
+            if (String.IsNullOrEmpty(_customer.Name) || String.IsNullOrEmpty(_customer.Contact) || String.IsNullOrEmpty(_customer.Id))
             {
                 MessageBox.Show("Name, contact and ID must be inserted!");
                 return;
             }
 
-            bool customerUpdated = _customerManager.UpdateCustomer(name, contact, address, id);
+            bool customerUpdated = _customerManager.UpdateCustomer(_customer);
 
             if (customerUpdated)
             {
@@ -84,12 +85,12 @@ namespace Assignment6.UI
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            String id = deleteCustomerTextBox.Text;
-            if (String.IsNullOrEmpty(id))
+            _customer.Id = deleteCustomerTextBox.Text;
+            if (String.IsNullOrEmpty(_customer.Id))
             {
                 MessageBox.Show("Insert ID number to delete");
             }
-            bool customerDeleted = _customerManager.DeleteCustomer(id);
+            bool customerDeleted = _customerManager.DeleteCustomer(_customer);
             if (customerDeleted)
             {
                 MessageBox.Show("Customer Deleted Successfully!");
@@ -212,6 +213,20 @@ namespace Assignment6.UI
                 isDigit = true;
             }
             return isDigit;
+        }
+
+        private void showDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (showDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                showDataGridView.CurrentRow.Selected = true;
+
+                updateNameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                updateContactTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Contact"].Value.ToString();
+                updateAddressTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Address"].Value.ToString();
+
+                _customer.Id = showDataGridView.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+            }
         }
     }
 }

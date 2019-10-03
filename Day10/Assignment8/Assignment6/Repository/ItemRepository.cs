@@ -16,7 +16,7 @@ namespace Assignment6.REPOSITORY
         public ItemRepository()
         {
             //Database Connection
-            String connectionString = @"Server=SHIIIFUUUU; Database=CoffeeShopCRUD; Integrated Security=True";
+            String connectionString = @"Server=PC-301-21\SQLEXPRESS; Database=CoffeeShopCRUD; Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
 

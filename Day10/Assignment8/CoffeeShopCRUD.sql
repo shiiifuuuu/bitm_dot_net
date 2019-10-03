@@ -51,11 +51,11 @@ INSERT INTO Orders (CustomerId, ItemId, Quantity, Price) VALUES (2, 4 , 4, 400)
 INSERT INTO Orders (CustomerId, ItemId, Quantity, Price) VALUES (4, 4 , 4, 400)
 
 
-SELECT o.Id, c.Name AS Customer, i.Name AS Item, Quantity, o.Price AS TotalPrice FROM Orders AS o
+SELECT o.Id, c.Name AS Customer, i.Name AS Item, i.Price, Quantity, o.Price AS TotalPrice FROM Orders AS o
 LEFT JOIN Customers AS c ON c.Id = o.CustomerId
 LEFT JOIN Items AS i ON i.Id = o.ItemId
 
-SELECT DISTINCT i.Name FROM Orders AS o
+SELECT DISTINCT ItemId, i.Name, i.Price FROM Orders AS o
 LEFT JOIN Items AS i ON i.Id = o.ItemId
 
 SELECT c.Name AS Customer FROM Orders AS o
@@ -65,3 +65,16 @@ LEFT JOIN Items AS i ON i.Id = o.ItemId
 SELECT o.Id, CustomerId, ItemId, c.Name AS Customer, i.Name AS Item, Quantity, o.Price AS TotalPrice FROM Orders AS o
 LEFT JOIN Customers AS c ON c.Id = o.CustomerId
 LEFT JOIN Items AS i ON i.Id = o.ItemId
+
+
+SELECT DISTINCT ItemId, i.Name, i.Price FROM Orders AS o
+LEFT JOIN Items AS i ON i.Id = o.ItemId
+WHERE ItemId = 2
+
+
+SELECT o.Id, c.Name AS Customer, i.Name AS Item, i.Price, Quantity, o.Price AS TotalPrice FROM Orders AS o
+LEFT JOIN Customers AS c ON c.Id = o.CustomerId
+LEFT JOIN Items AS i ON i.Id = o.ItemId
+WHERE c.Name LIKE 'Al%' OR i.Name LIKE 'sdf%'
+
+SELECT * From Orders WHERE Price LIKE '120%'

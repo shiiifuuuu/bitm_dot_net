@@ -48,8 +48,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.updateContactTextBox = new System.Windows.Forms.TextBox();
             this.updateAddressTextBox = new System.Windows.Forms.TextBox();
-            this.updateIdTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.updateNameTextBox = new System.Windows.Forms.TextBox();
             this.updateButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -71,6 +69,7 @@
             this.showDataGridView.Name = "showDataGridView";
             this.showDataGridView.Size = new System.Drawing.Size(515, 263);
             this.showDataGridView.TabIndex = 18;
+            this.showDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellDoubleClick);
             // 
             // addButton
             // 
@@ -200,17 +199,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 30);
+            this.label5.Location = new System.Drawing.Point(11, 33);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 13);
+            this.label5.Size = new System.Drawing.Size(90, 13);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Search order:";
+            this.label5.Text = "Search customer:";
             // 
             // searchCustomerTextBox
             // 
-            this.searchCustomerTextBox.Location = new System.Drawing.Point(89, 30);
+            this.searchCustomerTextBox.Location = new System.Drawing.Point(107, 30);
             this.searchCustomerTextBox.Name = "searchCustomerTextBox";
-            this.searchCustomerTextBox.Size = new System.Drawing.Size(148, 20);
+            this.searchCustomerTextBox.Size = new System.Drawing.Size(132, 20);
             this.searchCustomerTextBox.TabIndex = 6;
             this.searchCustomerTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchCustomerTextBox_KeyPress);
             // 
@@ -238,7 +237,7 @@
             // 
             // updateContactTextBox
             // 
-            this.updateContactTextBox.Location = new System.Drawing.Point(103, 52);
+            this.updateContactTextBox.Location = new System.Drawing.Point(103, 59);
             this.updateContactTextBox.Name = "updateContactTextBox";
             this.updateContactTextBox.Size = new System.Drawing.Size(100, 20);
             this.updateContactTextBox.TabIndex = 10;
@@ -246,31 +245,14 @@
             // 
             // updateAddressTextBox
             // 
-            this.updateAddressTextBox.Location = new System.Drawing.Point(103, 78);
+            this.updateAddressTextBox.Location = new System.Drawing.Point(103, 85);
             this.updateAddressTextBox.Name = "updateAddressTextBox";
             this.updateAddressTextBox.Size = new System.Drawing.Size(100, 20);
             this.updateAddressTextBox.TabIndex = 8;
             // 
-            // updateIdTextBox
-            // 
-            this.updateIdTextBox.Location = new System.Drawing.Point(103, 104);
-            this.updateIdTextBox.Name = "updateIdTextBox";
-            this.updateIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.updateIdTextBox.TabIndex = 6;
-            this.updateIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.updateIdTextBox_KeyPress);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(79, 104);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(18, 13);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "ID";
-            // 
             // updateNameTextBox
             // 
-            this.updateNameTextBox.Location = new System.Drawing.Point(103, 26);
+            this.updateNameTextBox.Location = new System.Drawing.Point(103, 33);
             this.updateNameTextBox.Name = "updateNameTextBox";
             this.updateNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.updateNameTextBox.TabIndex = 6;
@@ -278,7 +260,7 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(128, 130);
+            this.updateButton.Location = new System.Drawing.Point(128, 111);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 3;
@@ -293,8 +275,6 @@
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.updateContactTextBox);
             this.groupBox4.Controls.Add(this.updateAddressTextBox);
-            this.groupBox4.Controls.Add(this.updateIdTextBox);
-            this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.updateNameTextBox);
             this.groupBox4.Controls.Add(this.updateButton);
             this.groupBox4.Location = new System.Drawing.Point(277, 12);
@@ -307,7 +287,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(52, 81);
+            this.label3.Location = new System.Drawing.Point(52, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 7;
@@ -316,7 +296,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(53, 55);
+            this.label9.Location = new System.Drawing.Point(53, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 7;
@@ -325,7 +305,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(62, 29);
+            this.label6.Location = new System.Drawing.Point(62, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 11;
@@ -379,8 +359,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox updateContactTextBox;
         private System.Windows.Forms.TextBox updateAddressTextBox;
-        private System.Windows.Forms.TextBox updateIdTextBox;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox updateNameTextBox;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.GroupBox groupBox4;

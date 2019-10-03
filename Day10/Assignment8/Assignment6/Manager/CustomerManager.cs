@@ -1,6 +1,7 @@
 ﻿using Assignment6.REPOSITORY;
 using System;
 using System.Data;
+using Assignment6.MODEL;
 
 namespace Assignment6.MANAGER
 {
@@ -8,24 +9,24 @@ namespace Assignment6.MANAGER
     {
         private CustomerRepository _customerRepository = new CustomerRepository();
 
-        public bool AddCustomer(String name, String contact, String address)
+        public bool AddCustomer(Customer _customer)
         {
-            return _customerRepository.AddCustomer(name, contact, address);
+            return _customerRepository.AddCustomer(_customer);
         }
 
-        public DataTable SearchCustomer(String name)
+        public DataTable SearchCustomer(String searchText)
         {
-            return _customerRepository.SearchCustomer(name);
+            return _customerRepository.SearchCustomer(searchText);
         }
 
-        public bool UpdateCustomer(String name, String contact, String address, String id)
+        public bool UpdateCustomer(Customer _customer)
         {
-            return _customerRepository.UpdateCustomer(name, contact, address, id);
+            return _customerRepository.UpdateCustomer(_customer);
         }
 
-        public bool DeleteCustomer(String id)
+        public bool DeleteCustomer(Customer _customer)
         {
-            return _customerRepository.DeleteCustomer(id);
+            return _customerRepository.DeleteCustomer(_customer);
         }
 
         public DataTable ShowData()
@@ -33,9 +34,9 @@ namespace Assignment6.MANAGER
             return _customerRepository.ShowData();
         }
 
-        public bool isCustomerExist(String name)
+        public bool isCustomerExist(Customer _customer)
         {
-            return _customerRepository.isCustomerExist(name);
+            return _customerRepository.isCustomerExist(_customer);
         }
     }
 }

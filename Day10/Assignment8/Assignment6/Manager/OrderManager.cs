@@ -20,9 +20,9 @@ namespace Assignment6.MANAGER
         {
             return _orderRepository.AddOrder(_order);
         }
-        public DataTable SearchOrder(Order _order)
+        public DataTable SearchOrder(String searchText)
         {
-            return _orderRepository.SearchOrder(_order);
+            return _orderRepository.SearchOrder(searchText);
         }
         public bool UpdateOrder(Order _order)
         {

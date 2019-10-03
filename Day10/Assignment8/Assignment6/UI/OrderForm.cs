@@ -35,6 +35,7 @@ namespace Assignment6
             }
             if (_orderManager.AddOrder(_order))
             {
+                totalPriceTextBox.Text = _order.Price;
                 MessageBox.Show("Order Added Successfully!");
             }
             else
@@ -44,15 +45,17 @@ namespace Assignment6
         }
         private void updateButton_Click(object sender, EventArgs e)
         {
-            String itemQuantity = updateItemQuantityTextBox.Text;
+            _order.CustomerId = updateCustomerComboBox.SelectedValue.ToString();
+            _order.ItemId = updateItemComboBox.SelectedValue.ToString();
+            _order.Quantity = updateItemQuantityTextBox.Text;
 
-            if (String.IsNullOrEmpty(itemQuantity))
+            if (String.IsNullOrEmpty(_order.Quantity))
             {
-                MessageBox.Show("Order name, price, quantity and ID must be inserted!");
+                MessageBox.Show("Order quantity can not be empty!");
                 return;
             }
 
-            if (_orderManager.UpdateOrder(itemQuantity))
+            if (_orderManager.UpdateOrder(_order))
             {
                 MessageBox.Show("Order Updated Successfully!");
             }
@@ -64,14 +67,14 @@ namespace Assignment6
         }
         private void searchButton_Click(object sender, EventArgs e)
         {
-            String orderName = searchOrderTextBox.Text;
-            if (String.IsNullOrEmpty(orderName))
+            String searchText = searchOrderTextBox.Text;
+            if (String.IsNullOrEmpty(searchText))
             {
-                MessageBox.Show("Insert order name to Search!!");
+                MessageBox.Show("Search box is empty!!");
                 return;
             }
 
-            DataTable dataTable = _orderManager.SearchOrder(orderName);
+            DataTable dataTable = _orderManager.SearchOrder(searchText);
 
             if (dataTable.Rows.Count > 0)
             {
@@ -85,13 +88,13 @@ namespace Assignment6
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            String orderId = deleteOrderTextBox.Text;
-            if (String.IsNullOrEmpty(orderId))
+            _order.Id = deleteOrderTextBox.Text;
+            if (String.IsNullOrEmpty(_order.Id))
             {
                 MessageBox.Show("Insert ID number to delete order");
             }
 
-            if (_orderManager.DeleteOrder(orderId))
+            if (_orderManager.DeleteOrder(_order))
             {
                 MessageBox.Show("Order Deleted Successfully!");
             }
@@ -167,10 +170,10 @@ namespace Assignment6
         }
         private void searchOrderTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!TextInput(e))
-            {
-                MessageBox.Show("Order Name can only contain alphabetic characters!");
-            }
+            //if (!textinput(e))
+            //{
+            //    messagebox.show("order name can only contain alphabetic characters!");
+            //}
         }
         private void deleteOrderTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -223,6 +226,22 @@ namespace Assignment6
                 isFloat = true;
             }
             return isFloat;
+        }
+
+        private void showDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            updateCustomerComboBox.DataSource = _orderManager.CustomerComboShow();
+            updateItemComboBox.DataSource = _orderManager.ItemComboShow();
+
+            if (showDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                showDataGridView.CurrentRow.Selected = true;
+                updateCustomerComboBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Customer"].Value.ToString();
+                updateItemComboBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Item"].Value.ToString();
+                updateItemQuantityTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();
+
+                _order.Id = showDataGridView.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+            }
         }
     }
 }

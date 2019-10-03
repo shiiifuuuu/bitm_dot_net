@@ -15,21 +15,49 @@ namespace Assignment6.REPOSITORY
         public OrderRepository()
         {
             //Database Connection
-            String connectionString = @"Server=SHIIIFUUUU; Database=CoffeeShopCRUD; Integrated Security=True";
+            String connectionString = @"Server=PC-301-21\SQLEXPRESS; Database=CoffeeShopCRUD; Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
+        private double CalculateTotalPrice(Order _order)
+        {
+            double itemPrice=0;
+            String commandString = @"SELECT DISTINCT ItemId, i.Name, i.Price FROM Orders AS o
+                                    LEFT JOIN Items AS i ON i.Id = o.ItemId
+                                    WHERE ItemId = '"+_order.ItemId+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
+            sqlConnection.Open();
+
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                String price = reader["Price"].ToString();
+                itemPrice = double.Parse(price);
+            }
+
+            //if (sqlCommand.ExecuteNonQuery() > 0)
+            //{
+
+            //}
+
+            sqlConnection.Close();
+
+            return itemPrice;
+
+        }
         public bool AddOrder(Order _order)
         {
             bool isAdded = false;
+            double totalPrice = CalculateTotalPrice(_order) * int.Parse(_order.Quantity);
+            _order.Price = totalPrice + "";
             try
             {
                 String commandString = @"INSERT INTO 
-	                                            Orders (CustomerId, ItemId, Quantity)
+	                                            Orders (CustomerId, ItemId, Quantity, Price)
                                             VALUES
-	                                            ('" + _order.CustomerId + "', '" + _order.ItemId + "', '" + _order.Quantity + "')";
+	                                            ('" + _order.CustomerId + "', '" + _order.ItemId + "', '" + _order.Quantity + "', '"+_order.Price+"')";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
-
+                
                 sqlConnection.Open();
 
                 if (sqlCommand.ExecuteNonQuery() > 0)
@@ -43,14 +71,17 @@ namespace Assignment6.REPOSITORY
 
             return isAdded;
         }
-        public DataTable SearchOrder(String name)
+        public DataTable SearchOrder(String searchText)
         {
             DataTable dataTable = new DataTable();
             bool searchSuccess = false;
             try
             {
-                String commandString = @"SELECT * FROM Orders
-                                            WHERE OrderItem LIKE '" + name + "%'";
+                String commandString = @"SELECT o.Id, c.Name AS Customer, i.Name AS Item, i.Price, Quantity, o.Price AS TotalPrice FROM Orders AS o
+                LEFT JOIN Customers AS c ON c.Id = o.CustomerId
+                LEFT JOIN Items AS i ON i.Id = o.ItemId
+                WHERE c.Name LIKE '" + searchText + "%' OR i.Name LIKE '" + searchText + "%' OR o.Price LIKE '" + searchText + "%'";
+
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -74,26 +105,27 @@ namespace Assignment6.REPOSITORY
                 return dataTable;
             }
         }
-        public bool UpdateOrder(String quantity)
+        public bool UpdateOrder(Order _order)
         {
             bool isUpdated = false;
+            double totalPrice = CalculateTotalPrice(_order) * int.Parse(_order.Quantity);
+            _order.Price = totalPrice + "";
             try
             {
-                //float totalPrice = float.Parse(price) * int.Parse(quantity);
-                //String commandString = @"UPDATE Orders
-                //                            SET
-                //                            OrderItem = '" + name + "', " +
-                //                            "Quantity = " + quantity + ", " +
-                //                            "TotalPrice = " + totalPrice + " " +
-                //                            "WHERE Id = " + id + "";
-                //SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+                String commandString = @"UPDATE Orders
+                                        SET CustomerId = '" + _order.CustomerId + "', " +
+                                        "ItemId = '" + _order.ItemId + "', " +
+                                        "Quantity = '" + _order.Quantity + "', " +
+                                        "Price = '"+_order.Price+"' " +
+                                        "WHERE Id = '" + _order.Id + "'";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
 
-                //if (sqlCommand.ExecuteNonQuery() > 0)
-                //{
-                //    isUpdated = true;
-                //}
+                if (sqlCommand.ExecuteNonQuery() > 0)
+                {
+                    isUpdated = true;
+                }
                 sqlConnection.Close();
 
             }
@@ -101,13 +133,13 @@ namespace Assignment6.REPOSITORY
 
             return isUpdated;
         }
-        public bool DeleteOrder(String id)
+        public bool DeleteOrder(Order _order)
         {
             bool isDeleted = false;
             try
             {
                 String commandString = @"DELETE FROM Orders
-                                         WHERE Id='" + id + "'";
+                                         WHERE Id='" + _order.Id + "'";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -129,7 +161,9 @@ namespace Assignment6.REPOSITORY
             DataTable dataTable = new DataTable();
             try
             {
-                String commandString = @"SELECT * FROM Orders";
+                String commandString = @"SELECT o.Id, c.Name AS Customer, i.Name AS Item, i.Price, Quantity, o.Price AS TotalPrice FROM Orders AS o
+                                        LEFT JOIN Customers AS c ON c.Id = o.CustomerId
+                                        LEFT JOIN Items AS i ON i.Id = o.ItemId";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();

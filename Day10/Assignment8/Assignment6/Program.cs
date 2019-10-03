@@ -17,9 +17,9 @@ namespace Assignment6
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ItemForm());
+            Application.Run(new CustomerForm());
+            Application.Run(new ItemForm());
             Application.Run(new OrderForm());
-            //Application.Run(new CustomerForm());
         }
     }
 }

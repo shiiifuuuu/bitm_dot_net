@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-
+using Assignment6.MODEL;
 
 namespace Assignment6.REPOSITORY
 {
@@ -13,19 +13,19 @@ namespace Assignment6.REPOSITORY
         public CustomerRepository()
         {
             //Database Connection
-            String connectionString = @"Server=SHIIIFUUUU; Database=CoffeeShopCRUD; Integrated Security=True";
+            String connectionString = @"Server=PC-301-21\SQLEXPRESS; Database=CoffeeShopCRUD; Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
 
-        public bool AddCustomer(String name, String contact, String address)
+        public bool AddCustomer(Customer _customer)
         {
             bool isAdded = false;
             try
             {
                 String commandString = @"INSERT INTO
-                                            Customers (CustomerName, Contact, Address)
+                                            Customers (Name, Contact, Address)
                                             VALUES
-                                            ('" + name + "', '" + contact + "', '" + address + "')";
+                                            ('" + _customer.Name + "', '" + _customer.Contact + "', '" + _customer.Address + "')";
 
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
@@ -43,14 +43,14 @@ namespace Assignment6.REPOSITORY
             return isAdded;
         }
 
-        public DataTable SearchCustomer(String name)
+        public DataTable SearchCustomer(String searchText)
         {
             DataTable dataTable = new DataTable();
             bool searchSuccess = false;
             try
             {
                 String commandString = @"SELECT * FROM Customers
-                                            WHERE CustomerName LIKE '" + name + "%'";
+                                            WHERE Name LIKE '" + searchText + "%' OR Contact LIKE '"+searchText+"' OR Address LIKE '"+searchText+"'";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -78,17 +78,16 @@ namespace Assignment6.REPOSITORY
             }
         }
 
-        public bool UpdateCustomer(String name, String contact, String address, String id)
+        public bool UpdateCustomer(Customer _customer)
         {
             bool customerUpdated = false;
             try
             {
                 String commandString = @"UPDATE Customers
-                                            SET
-                                            CustomerName = '" + name + "', " +
-                                              "Contact = '" + contact + "', " +
-                                              "Address = '" + address + "' " +
-                                              "WHERE ID = '" + id + "'";
+                                            SET Name = '" + _customer.Name + "', " +
+                                              "Contact = '" + _customer.Contact + "', " +
+                                              "Address = '" + _customer.Address + "' " +
+                                              "WHERE ID = '" + _customer.Id + "'";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -105,13 +104,13 @@ namespace Assignment6.REPOSITORY
             return customerUpdated;
         }
 
-        public bool DeleteCustomer(String id)
+        public bool DeleteCustomer(Customer _customer)
         {
             bool customerDeleted = false;
             try
             {
                 String commandString = @"DELETE FROM Customers
-                                         WHERE ID='" + id + "'";
+                                         WHERE ID='" + _customer.Id + "'";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -160,10 +159,10 @@ namespace Assignment6.REPOSITORY
             }
         }
 
-        public bool isCustomerExist(String name)
+        public bool isCustomerExist(Customer _customer)
         {
             bool customerExist = false;
-            String commandString = @"SELECT * FROM Customers WHERE CustomerName LIKE '" + name + "%'";
+            String commandString = @"SELECT * FROM Customers WHERE Name LIKE '" + _customer.Name + "%'";
 
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
