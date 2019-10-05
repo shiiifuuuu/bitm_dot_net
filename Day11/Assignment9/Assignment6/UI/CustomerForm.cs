@@ -1,8 +1,9 @@
 ﻿using Assignment6.MANAGER;
 using System;
-using System.Data;
 using System.Windows.Forms;
 using Assignment6.MODEL;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Assignment6.UI
 {
@@ -25,15 +26,15 @@ namespace Assignment6.UI
         {
             try
             {
-                if (_customerManager.ShowData().Rows.Count == 0)
+                if (_customerManager.ShowData() == null)
                 {
                     showDataGridView.Columns.Clear();
                     confirmationLabel.Text = "No data Exist in the database!";
                     return;
                 }
-                if (_customerManager.ShowData().Rows.Count > 0)
+                if (_customerManager.ShowData() != null)
                 {
-                    showDataGridView.Columns.Add("SerialNumber", "SI");
+                    //showDataGridView.Columns.Add("SerialNumber", "SI");
                     showDataGridView.DataSource = _customerManager.ShowData();
                     showDataGridView.Columns[showDataGridView.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
@@ -241,19 +242,32 @@ namespace Assignment6.UI
             CleanAll();
             try
             {
-                DataTable dataTable = _customerManager.ShowData();
-                if (dataTable.Rows.Count == 0)
+                List<Customer> customers = _customerManager.ShowData();
+                if (customers != null)
                 {
-                    dataTable.Columns.Clear();
+                    showDataGridView.DataSource = customers;
+                }
+                else
+                {
+                    showDataGridView.Columns.Clear();
                     confirmationLabel.Text = "No Data Found!";
                     return;
                 }
-                if (dataTable.Rows.Count > 0)
-                {
-                    showDataGridView.DataSource = dataTable;
 
-                }
-            }catch(Exception exception)
+                //DataTable dataTable = _customerManager.ShowData();
+                //if (dataTable.Rows.Count == 0)
+                //{
+                //    dataTable.Columns.Clear();
+                //    confirmationLabel.Text = "No Data Found!";
+                //    return;
+                //}
+                //if (dataTable.Rows.Count > 0)
+                //{
+                //    showDataGridView.DataSource = dataTable;
+
+                //}
+            }
+            catch(Exception exception)
             {
                 MessageBox.Show(exception.Message);
                 _customerManager.CloseConnection();
@@ -264,13 +278,13 @@ namespace Assignment6.UI
         {
             try
             {
-                if (_customerManager.ShowData().Rows.Count == 0)
+                if (_customerManager.ShowData() == null)
                 {
                     showDataGridView.Columns.Clear();
                     confirmationLabel.Text = "No data Exist in the database!";
                     return;
                 }
-                if (_customerManager.ShowData().Rows.Count > 0)
+                if (_customerManager.ShowData()!=null)
                 {
                     showDataGridView.DataSource = _customerManager.ShowData();
                     showDataGridView.Columns[showDataGridView.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -340,24 +354,31 @@ namespace Assignment6.UI
         //D O U B L E   C L I C K
         private void showDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (showDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                showDataGridView.CurrentRow.Selected = true;
+                if (showDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    showDataGridView.CurrentRow.Selected = true;
 
-                codeTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Code"].Value.ToString();
-                nameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Name"].Value.ToString();
-                contactTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Contact"].Value.ToString();
-                addressTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Address"].Value.ToString();
-                districtComboBox.Text = showDataGridView.Rows[e.RowIndex].Cells["District"].Value.ToString();
+                    codeTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Code"].Value.ToString();
+                    nameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                    contactTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Contact"].Value.ToString();
+                    addressTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Address"].Value.ToString();
+                    districtComboBox.Text = showDataGridView.Rows[e.RowIndex].Cells["District"].Value.ToString();
 
-                String id = _customerManager.findId(codeTextBox.Text);
+                    String id = _customerManager.findId(codeTextBox.Text);
 
-                _customer.Id = id;
+                    _customer.Id = id;
 
-                addUpdateButton.Text = "Update";
+                    addUpdateButton.Text = "Update";
 
-                deleteCustomerTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Code"].Value.ToString();
+                    deleteCustomerTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Code"].Value.ToString();
+                }
+            }catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
             }
+            
         }
         //D O U B L E   C L I C K
 

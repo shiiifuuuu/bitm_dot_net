@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using Assignment6.MODEL;
@@ -144,19 +145,35 @@ namespace Assignment6.REPOSITORY
             return customerDeleted;
         }
 
-        public DataTable ShowData()
+        public List<Customer> ShowData()
         {
             bool trySuccess = false;
-            DataTable dataTable = new DataTable();
 
             String commandString = @"SELECT Code, Name, Contact, Address, District FROM Customers ORDER BY Code";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             sqlConnection.Open();
 
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            //USING DATA ADAPTER
+            //DataTable dataTable = new DataTable();
+            //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            //sqlDataAdapter.Fill(dataTable);
 
-            sqlDataAdapter.Fill(dataTable);
+            //NOW USING SQL DATA READER
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            List<Customer> customers = new List<Customer>();
+            while (sqlDataReader.Read())
+            {
+                Customer customer = new Customer();
+                customer.Code = sqlDataReader.GetString(0);
+                //customer.Code = sqlDataReader["Code"].ToString();
+                customer.Name = sqlDataReader["Name"].ToString();
+                customer.Contact = sqlDataReader["Contact"].ToString();
+                customer.Address = sqlDataReader["Address"].ToString();
+                customer.District = sqlDataReader["District"].ToString();
+
+                customers.Add(customer);
+            }sqlDataReader.Close();
 
             trySuccess = true;
 
@@ -164,12 +181,12 @@ namespace Assignment6.REPOSITORY
 
             if (trySuccess)
             {
-                return dataTable;
+                return customers;
             }
             else
             {
-                dataTable = null;
-                return dataTable;
+                customers = null;
+                return customers;
             }
         }
 

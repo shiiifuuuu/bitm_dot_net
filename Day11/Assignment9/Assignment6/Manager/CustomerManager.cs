@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using Assignment6.MODEL;
+using System.Collections.Generic;
 
 namespace Assignment6.MANAGER
 {
@@ -29,7 +30,7 @@ namespace Assignment6.MANAGER
             return _customerRepository.DeleteCustomer(_customer);
         }
 
-        public DataTable ShowData()
+        public List<Customer> ShowData()
         {
             return _customerRepository.ShowData();
         }
