@@ -33,11 +33,16 @@ SELECT * FROM Customers
 SELECT * FROM Items
 SELECT * FROM Orders
 
+DELETE FROM Customers
+
+Select Id from Customers where Code = 0001
 
 INSERT INTO Customers (Name, Address, Contact) VALUES ('Ali', 'Dhaka' ,'01311369369')
 INSERT INTO Customers VALUES ('Hasan', 'Sylhet' ,'01711369369')
 INSERT INTO Customers VALUES ('Rafi', 'BNorisal' ,'01811369369')
 INSERT INTO Customers VALUES ('Rafiul', 'Shamoly' ,'524545369369')
+
+INSERT INTO Customers VALUES ('0001','Rafiul', '5245453', 'Shamoly', 'Dhaka')
 
 INSERT INTO Items (Name, Price) Values ('Black', 120)
 INSERT INTO Items (Name, Price) Values ('Regular', 80)
