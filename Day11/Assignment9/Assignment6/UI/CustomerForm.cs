@@ -19,23 +19,29 @@ namespace Assignment6.UI
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            showDataGridView.Columns.Add("SerialNumber", "SI");
-            DisplayAllData();
-
-            showDataGridView.Columns[showDataGridView.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            LoadData();
         }
-
-        private void DisplayAllData()
+        private void LoadData()
         {
-            if (_customerManager.ShowData().Rows.Count == 0)
+            try
             {
-                showDataGridView.Columns.Clear();
-                return;
+                if (_customerManager.ShowData().Rows.Count == 0)
+                {
+                    showDataGridView.Columns.Clear();
+                    confirmationLabel.Text = "No data Exist in the database!";
+                    return;
+                }
+                if (_customerManager.ShowData().Rows.Count > 0)
+                {
+                    showDataGridView.Columns.Add("SerialNumber", "SI");
+                    showDataGridView.DataSource = _customerManager.ShowData();
+                    showDataGridView.Columns[showDataGridView.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
             }
-            if (_customerManager.ShowData().Rows.Count > 0)
+            catch (Exception exception)
             {
-                showDataGridView.DataSource = _customerManager.ShowData();
-
+                MessageBox.Show(exception.Message);
+                _customerManager.CloseConnection();
             }
         }
 
@@ -63,7 +69,7 @@ namespace Assignment6.UI
                     if (_customerManager.AddCustomer(_customer))
                     {
                         CleanAll();
-                        DisplayAllData();
+                        Display();
                         confirmationLabel.ForeColor = System.Drawing.Color.Green;
                         confirmationLabel.Text = "Customer " + _customer.Code + " added Successfully";
                     }
@@ -73,7 +79,7 @@ namespace Assignment6.UI
                     if (_customerManager.UpdateCustomer(_customer))
                     {
                         CleanAll();
-                        DisplayAllData();
+                        Display();
                         confirmationLabel.ForeColor = System.Drawing.Color.Green;
                         confirmationLabel.Text = "Customer " + _customer.Code + " updated Successfully";
                     }
@@ -82,6 +88,7 @@ namespace Assignment6.UI
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
+                _customerManager.CloseConnection();
             }
         }
 
@@ -138,25 +145,35 @@ namespace Assignment6.UI
 
         private bool isUnique(Customer _customer)
         {
-            if (_customerManager.isCodeExist(_customer))
+            bool isUnique = false;
+            try
             {
-                errorCodeLabel.Text = "Code already exist!";
-                return false;
+                if (_customerManager.isCodeExist(_customer))
+                {
+                    errorCodeLabel.Text = "Code already exist!";
+                    return isUnique;
+                }
+                else
+                {
+                    errorCodeLabel.Text = null;
+                }
+                if (_customerManager.isContactExist(_customer))
+                {
+                    errorContactLabel.Text = "Contact already exist!!";
+                    return isUnique;
+                }
+                else
+                {
+                    errorContactLabel.Text = null;
+                }
+                isUnique = true;
             }
-            else
+            catch(Exception exception)
             {
-                errorCodeLabel.Text = null;
+                MessageBox.Show(exception.Message);
+                _customerManager.CloseConnection();
             }
-            if (_customerManager.isContactExist(_customer))
-            {
-                errorContactLabel.Text = "Contact already exist!!";
-                return false;
-            }
-            else
-            {
-                errorContactLabel.Text = null;
-            }
-            return true;
+            return isUnique;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -191,6 +208,7 @@ namespace Assignment6.UI
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
+                _customerManager.CloseConnection();
             }
         }
 
@@ -203,7 +221,7 @@ namespace Assignment6.UI
                 bool customerDeleted = _customerManager.DeleteCustomer(_customer);
                 if (customerDeleted)
                 {
-                    DisplayAllData();
+                    Display();
                     confirmationLabel.ForeColor = System.Drawing.Color.Green;
                     confirmationLabel.Text = "Customer " + _customer.Code + " Deleted Successfully!";
                 }
@@ -215,6 +233,7 @@ namespace Assignment6.UI
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
+                _customerManager.CloseConnection();
             }
         }
         private void showButton_Click(object sender, EventArgs e)
@@ -237,6 +256,30 @@ namespace Assignment6.UI
             }catch(Exception exception)
             {
                 MessageBox.Show(exception.Message);
+                _customerManager.CloseConnection();
+            }
+        }
+
+        private void Display()
+        {
+            try
+            {
+                if (_customerManager.ShowData().Rows.Count == 0)
+                {
+                    showDataGridView.Columns.Clear();
+                    confirmationLabel.Text = "No data Exist in the database!";
+                    return;
+                }
+                if (_customerManager.ShowData().Rows.Count > 0)
+                {
+                    showDataGridView.DataSource = _customerManager.ShowData();
+                    showDataGridView.Columns[showDataGridView.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                _customerManager.CloseConnection();
             }
         }
 

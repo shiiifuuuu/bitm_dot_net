@@ -48,5 +48,10 @@ namespace Assignment6.MANAGER
         {
             return _customerRepository.findId(customerCode);
         }
+
+        public void CloseConnection()
+        {
+            _customerRepository.CloseConnection();
+        }
     }
 }

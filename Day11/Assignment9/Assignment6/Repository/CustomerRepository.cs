@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using Assignment6.MODEL;
 
 namespace Assignment6.REPOSITORY
@@ -73,6 +72,15 @@ namespace Assignment6.REPOSITORY
                 dataTable = null;
                 return dataTable;
             }
+        }
+
+        public void CloseConnection()
+        {
+            try
+            {
+                sqlConnection.Close();
+            }
+            catch { }
         }
 
         public string findId(string customerCode)
