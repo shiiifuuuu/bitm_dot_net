@@ -1,0 +1,17 @@
+CREATE DATABASE Mobile
+USE Mobile
+
+CREATE TABLE MobileInformation
+(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+ModelName VARCHAR(50) NOT NULL,
+IMEI VARCHAR(15) NOT NULL UNIQUE,
+Price VARCHAR(15) NOT NULL
+)
+
+SELECT * FROM MobileInformation
+
+INSERT INTO MobileInformation (ModelName, IMEI, Price)
+VALUES ('android','123456789123456','6000')
+
+SELECT * FROM MobileInformation WHERE Price BETWEEN '0' AND '100'
