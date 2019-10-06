@@ -34,7 +34,7 @@ namespace Assignment6.UI
                 }
                 if (_customerManager.ShowData() != null)
                 {
-                    //showDataGridView.Columns.Add("SerialNumber", "SI");
+                    showDataGridView.Columns.Add("SerialNumber", "SI#");
                     showDataGridView.DataSource = _customerManager.ShowData();
                     showDataGridView.Columns[showDataGridView.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
