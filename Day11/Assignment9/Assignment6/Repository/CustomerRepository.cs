@@ -9,13 +9,15 @@ namespace Assignment6.REPOSITORY
     public class CustomerRepository
     {
         private SqlConnection sqlConnection;
-        private String server = "Shiiifuuuu";
+        //private String server = "Shiiifuuuu";
+        //private String server = "PC-301-21\SQLEXPRESS";
         private String database = "CoffeeShopCRUD";
-
+        
         public CustomerRepository()
         {
             //Database Connection
-            String connectionString = "Server="+server+"; Database="+database+"; Integrated Security=True";
+            //String connectionString = "Server="+server+"; Database="+database+"; Integrated Security=True";
+            String connectionString = @"Server=PC-301-21\SQLEXPRESS ; Database=CoffeeShopCRUD; Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
 
