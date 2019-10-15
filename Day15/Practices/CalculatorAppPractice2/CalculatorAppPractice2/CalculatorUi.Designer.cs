@@ -48,6 +48,7 @@
             this.DivideButton.TabIndex = 16;
             this.DivideButton.Text = "Divide";
             this.DivideButton.UseVisualStyleBackColor = true;
+            this.DivideButton.Click += new System.EventHandler(this.DivideButton_Click);
             // 
             // MultiplyButton
             // 
@@ -57,6 +58,7 @@
             this.MultiplyButton.TabIndex = 17;
             this.MultiplyButton.Text = "Multiply";
             this.MultiplyButton.UseVisualStyleBackColor = true;
+            this.MultiplyButton.Click += new System.EventHandler(this.MultiplyButton_Click);
             // 
             // SubtractButton
             // 
@@ -66,6 +68,7 @@
             this.SubtractButton.TabIndex = 18;
             this.SubtractButton.Text = "Subtract";
             this.SubtractButton.UseVisualStyleBackColor = true;
+            this.SubtractButton.Click += new System.EventHandler(this.SubtractButton_Click);
             // 
             // AddButton
             // 
@@ -75,6 +78,7 @@
             this.AddButton.TabIndex = 19;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // resultTextBox
             // 
