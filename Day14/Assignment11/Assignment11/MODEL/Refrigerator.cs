@@ -9,6 +9,7 @@ namespace Assignment11.MODEL
     public class Refrigerator
     {
         public double MaximumWeight { set; get; }
+        double Weight { set; get; }
 
         public Refrigerator(double maximumWeight)
         {
@@ -19,16 +20,16 @@ namespace Assignment11.MODEL
         {
         }
 
-        double currentWeight = 0;
         public double CurrentWeight(double weight)
         {
-            currentWeight+= weight;
+            currentWeight += weight;
+            MaximumWeight -= currentWeight;
             return currentWeight;
         }
 
-        public double RemainingWeight()
+        public double RemainingWeight(double weight)
         {
-            double remainingWeight = this.MaximumWeight - currentWeight;
+            double remainingWeight = MaximumWeight;
             return remainingWeight;
         }
     }

@@ -27,24 +27,20 @@ namespace Assignment11
 
         private void enterButton_Click(object sender, EventArgs e)
         {
-            int itemNo = int.Parse(itemNoTextBox.Text);
+            double itemWeight = double.Parse(itemWeightTextBox.Text);
+            double remainingWeight = _refrigerator.MaximumWeight;
 
-            if(double.Parse(itemWeightTextBox.Text) <= _refrigerator.MaximumWeight)
+            if (itemWeight <= remainingWeight)
             {
-                double currentWeight = _refrigerator.CurrentWeight(double.Parse(itemWeightTextBox.Text));
+                currentWeightTextBox.Text = _refrigerator.CurrentWeight(double.Parse(itemWeightTextBox.Text)) + "";
+                remainingWeight = remainingWeight - itemWeight;
 
-
-                if (double.Parse(currentWeightTextBox.Text) <= _refrigerator.MaximumWeight)
-                {
-                    
-                    remainingWeightTextBox.Text = _refrigerator.RemainingWeight() + "";
-                }
+                remainingWeightTextBox.Text = _refrigerator.RemainingWeight(remainingWeight)+"";
             }
             else
             {
-                MessageBox.Show("Weight Overflow!");
+                MessageBox.Show("Weight Overflow!!");
             }
-            
         }
     }
 }

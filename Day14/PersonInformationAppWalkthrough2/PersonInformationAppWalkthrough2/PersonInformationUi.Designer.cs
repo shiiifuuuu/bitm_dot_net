@@ -161,6 +161,7 @@
             this.Controls.Add(this.label1);
             this.Name = "PersonInformationUi";
             this.Text = "Person Information";
+            this.Load += new System.EventHandler(this.PersonInformationUi_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
