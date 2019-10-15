@@ -19,10 +19,7 @@ namespace SalaryCalculatorAppPractice3
 
         public double ShowTotalSalary(int homeRent, int medicalAllowance)
         {
-            double totalSalary = 0;
-            double home = Salary * homeRent/ 100;
-            double medical = Salary * medicalAllowance / 100;
-            totalSalary = Salary + home + medical;
+            double totalSalary = Salary + (Salary * homeRent / 100) + (Salary * medicalAllowance / 100);
             return totalSalary;
         }
     }
