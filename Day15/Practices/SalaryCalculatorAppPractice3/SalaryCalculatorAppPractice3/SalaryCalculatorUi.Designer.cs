@@ -49,6 +49,7 @@
             this.ShowMeSalaryButton.TabIndex = 30;
             this.ShowMeSalaryButton.Text = "Show Me Salary";
             this.ShowMeSalaryButton.UseVisualStyleBackColor = true;
+            this.ShowMeSalaryButton.Click += new System.EventHandler(this.ShowMeSalaryButton_Click);
             // 
             // medicalAllowanceTextBox
             // 
@@ -92,18 +93,18 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(316, 108);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 21;
-            this.label6.Text = "0% of Basic";
+            this.label6.Text = "% of Basic";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(316, 83);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 22;
-            this.label5.Text = "0% of Basic";
+            this.label5.Text = "% of Basic";
             // 
             // label3
             // 
