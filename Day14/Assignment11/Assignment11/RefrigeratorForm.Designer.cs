@@ -40,6 +40,7 @@
             this.currentWeightTextBox = new System.Windows.Forms.TextBox();
             this.remainingWeightTextBox = new System.Windows.Forms.TextBox();
             this.enterButton = new System.Windows.Forms.Button();
+            this.showRichTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -71,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 90);
+            this.label2.Location = new System.Drawing.Point(10, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 0;
@@ -79,7 +80,7 @@
             // 
             // itemNoTextBox
             // 
-            this.itemNoTextBox.Location = new System.Drawing.Point(84, 83);
+            this.itemNoTextBox.Location = new System.Drawing.Point(105, 82);
             this.itemNoTextBox.Name = "itemNoTextBox";
             this.itemNoTextBox.Size = new System.Drawing.Size(128, 20);
             this.itemNoTextBox.TabIndex = 1;
@@ -87,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(218, 86);
+            this.label3.Location = new System.Drawing.Point(10, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 0;
@@ -95,7 +96,7 @@
             // 
             // itemWeightTextBox
             // 
-            this.itemWeightTextBox.Location = new System.Drawing.Point(313, 83);
+            this.itemWeightTextBox.Location = new System.Drawing.Point(105, 116);
             this.itemWeightTextBox.Name = "itemWeightTextBox";
             this.itemWeightTextBox.Size = new System.Drawing.Size(128, 20);
             this.itemWeightTextBox.TabIndex = 1;
@@ -103,7 +104,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 140);
+            this.label4.Location = new System.Drawing.Point(12, 256);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 13);
             this.label4.TabIndex = 0;
@@ -112,7 +113,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(217, 140);
+            this.label5.Location = new System.Drawing.Point(217, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 0;
@@ -120,7 +121,7 @@
             // 
             // currentWeightTextBox
             // 
-            this.currentWeightTextBox.Location = new System.Drawing.Point(105, 137);
+            this.currentWeightTextBox.Location = new System.Drawing.Point(105, 253);
             this.currentWeightTextBox.Name = "currentWeightTextBox";
             this.currentWeightTextBox.ReadOnly = true;
             this.currentWeightTextBox.Size = new System.Drawing.Size(106, 20);
@@ -128,7 +129,7 @@
             // 
             // remainingWeightTextBox
             // 
-            this.remainingWeightTextBox.Location = new System.Drawing.Point(326, 137);
+            this.remainingWeightTextBox.Location = new System.Drawing.Point(326, 253);
             this.remainingWeightTextBox.Name = "remainingWeightTextBox";
             this.remainingWeightTextBox.ReadOnly = true;
             this.remainingWeightTextBox.Size = new System.Drawing.Size(106, 20);
@@ -136,7 +137,7 @@
             // 
             // enterButton
             // 
-            this.enterButton.Location = new System.Drawing.Point(447, 81);
+            this.enterButton.Location = new System.Drawing.Point(158, 148);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(75, 23);
             this.enterButton.TabIndex = 2;
@@ -144,11 +145,20 @@
             this.enterButton.UseVisualStyleBackColor = true;
             this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
+            // showRichTextBox
+            // 
+            this.showRichTextBox.Location = new System.Drawing.Point(239, 82);
+            this.showRichTextBox.Name = "showRichTextBox";
+            this.showRichTextBox.Size = new System.Drawing.Size(266, 152);
+            this.showRichTextBox.TabIndex = 3;
+            this.showRichTextBox.Text = "";
+            // 
             // RefrigeratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 214);
+            this.ClientSize = new System.Drawing.Size(517, 307);
+            this.Controls.Add(this.showRichTextBox);
             this.Controls.Add(this.enterButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.remainingWeightTextBox);
@@ -182,6 +192,7 @@
         private System.Windows.Forms.TextBox currentWeightTextBox;
         private System.Windows.Forms.TextBox remainingWeightTextBox;
         private System.Windows.Forms.Button enterButton;
+        private System.Windows.Forms.RichTextBox showRichTextBox;
     }
 }
 

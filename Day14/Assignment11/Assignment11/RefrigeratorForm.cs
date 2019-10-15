@@ -28,17 +28,21 @@ namespace Assignment11
             enterButton.Enabled = true;
         }
 
+        private int count = 0;
         private void enterButton_Click(object sender, EventArgs e)
         {
-            _refrigerator.ItemNo = int.Parse(itemNoTextBox.Text);
-            _refrigerator.ItemWeight = double.Parse(itemWeightTextBox.Text);
+            _refrigerator.ItemNo.Add(int.Parse(itemNoTextBox.Text));
+            _refrigerator.ItemWeight.Add(double.Parse(itemWeightTextBox.Text));
 
-            double totalWeight = _refrigerator.CalculateWeight();
+            double totalWeight = _refrigerator.CalculateWeight(count);
+            count++;
 
             if (_refrigerator.Validate(totalWeight))
             {
                 currentWeightTextBox.Text = _refrigerator.CurrentWeight(totalWeight) + "";
                 remainingWeightTextBox.Text = _refrigerator.RemainingWeight() + "";
+
+                showRichTextBox.Text = _refrigerator.ShowValue();
             }
             else
             {

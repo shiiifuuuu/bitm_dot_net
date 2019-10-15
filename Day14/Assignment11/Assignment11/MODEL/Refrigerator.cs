@@ -9,8 +9,10 @@ namespace Assignment11.MODEL
     public class Refrigerator
     {
         public double MaximumWeight { set; get; }
-        public int ItemNo { set; get; }
-        public double ItemWeight { set; get; }
+
+        public List<int> ItemNo = new List<int>();
+        public List<double> ItemWeight = new List<double>();
+        public List<double> TotalWeight = new List<double>();
 
         double weight = 0;
 
@@ -19,10 +21,10 @@ namespace Assignment11.MODEL
             this.MaximumWeight = maximumWeight;
         }
 
-        public double CalculateWeight()
+        public double CalculateWeight(int i)
         {
-            double totaltWeight = this.ItemNo * this.ItemWeight;
-            return totaltWeight;
+            TotalWeight.Add(this.ItemNo[i] * this.ItemWeight[i]);
+            return TotalWeight[i];
         }
 
         public double CurrentWeight(double itemWeight)
@@ -45,6 +47,16 @@ namespace Assignment11.MODEL
                 isValid = true;
             }
             return isValid;
+        }
+
+        internal string ShowValue()
+        {
+            string message = "";
+            for(int i = 0; i < ItemNo.Count; i++)
+            {
+                message += "No. of items: " + ItemNo[i] + "\n" + "Kg/Unit: " + ItemWeight[i] + "\n" + "Total: " + TotalWeight[i] +" Kg" +"\n\n";
+            }
+            return message;
         }
     }
 }
