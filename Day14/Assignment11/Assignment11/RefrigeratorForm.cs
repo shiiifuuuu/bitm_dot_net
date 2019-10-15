@@ -18,29 +18,35 @@ namespace Assignment11
         public RefrigeratorForm()
         {
             InitializeComponent();
+            enterButton.Enabled = false;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             _refrigerator = new Refrigerator(double.Parse(maximumWeightTextBox.Text));
+            maximumWeightTextBox.ReadOnly = true;
+            enterButton.Enabled = true;
         }
 
         private void enterButton_Click(object sender, EventArgs e)
         {
-            double itemWeight = double.Parse(itemWeightTextBox.Text);
-            double remainingWeight = _refrigerator.MaximumWeight;
+            _refrigerator.ItemNo = int.Parse(itemNoTextBox.Text);
+            _refrigerator.ItemWeight = double.Parse(itemWeightTextBox.Text);
 
-            if (itemWeight <= remainingWeight)
+            double totalWeight = _refrigerator.CalculateWeight();
+
+            if (_refrigerator.Validate(totalWeight))
             {
-                currentWeightTextBox.Text = _refrigerator.CurrentWeight(double.Parse(itemWeightTextBox.Text)) + "";
-                remainingWeight = remainingWeight - itemWeight;
-
-                remainingWeightTextBox.Text = _refrigerator.RemainingWeight(remainingWeight)+"";
+                currentWeightTextBox.Text = _refrigerator.CurrentWeight(totalWeight) + "";
+                remainingWeightTextBox.Text = _refrigerator.RemainingWeight() + "";
             }
             else
             {
                 MessageBox.Show("Weight Overflow!!");
             }
+
+            itemNoTextBox.Clear();
+            itemWeightTextBox.Clear();
         }
     }
 }

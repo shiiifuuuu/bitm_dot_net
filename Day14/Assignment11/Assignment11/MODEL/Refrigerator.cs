@@ -9,28 +9,42 @@ namespace Assignment11.MODEL
     public class Refrigerator
     {
         public double MaximumWeight { set; get; }
-        double Weight { set; get; }
+        public int ItemNo { set; get; }
+        public double ItemWeight { set; get; }
+
+        double weight = 0;
 
         public Refrigerator(double maximumWeight)
         {
             this.MaximumWeight = maximumWeight;
         }
 
-        public Refrigerator()
+        public double CalculateWeight()
         {
+            double totaltWeight = this.ItemNo * this.ItemWeight;
+            return totaltWeight;
         }
 
-        public double CurrentWeight(double weight)
+        public double CurrentWeight(double itemWeight)
         {
-            currentWeight += weight;
-            MaximumWeight -= currentWeight;
-            return currentWeight;
+            this.weight += itemWeight;
+            this.MaximumWeight -= itemWeight;
+            return weight;
         }
 
-        public double RemainingWeight(double weight)
+        public double RemainingWeight()
         {
-            double remainingWeight = MaximumWeight;
-            return remainingWeight;
+            return this.MaximumWeight;
+        }
+
+        internal bool Validate(double totalWeight)
+        {
+            bool isValid = false;
+            if(totalWeight <= this.MaximumWeight)
+            {
+                isValid = true;
+            }
+            return isValid;
         }
     }
 }
