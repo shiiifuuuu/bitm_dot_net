@@ -22,9 +22,17 @@ namespace AccountOperationAppPractice1
         {
             balance += amount;
         }
-        public void Withdraw(double amount)
+        public int Withdraw(double amount)
         {
-            balance -= amount;
+            if (amount < balance)
+            {
+                balance -= amount;
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
         }
         public string GetReport()
         {

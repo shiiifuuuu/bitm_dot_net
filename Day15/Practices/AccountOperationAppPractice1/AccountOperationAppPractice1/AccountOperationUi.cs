@@ -16,19 +16,53 @@ namespace AccountOperationAppPractice1
         public AccountOperationUi()
         {
             InitializeComponent();
+            DipositButton.Enabled = false;
+            WithdrawButton.Enabled = false;
+            ReportButton.Enabled = false;
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
             _account = new Account(accountNoTextBox.Text, customerNameTextBox.Text);
 
-            accountNoTextBox.Clear();
-            customerNameTextBox.Clear();
+            CreateButton.Enabled = false;
+            accountNoTextBox.ReadOnly = true;
+            customerNameTextBox.ReadOnly = true;
+            DipositButton.Enabled = true;
+            WithdrawButton.Enabled = true;
+            ReportButton.Enabled = true;
         }
 
         private void DipositButton_Click(object sender, EventArgs e)
         {
-            _account.Deposit(double.Parse(amountTextBox.Text));
+            try
+            {
+                double amount = double.Parse(amountTextBox.Text);
+                _account.Deposit(amount);
+                MessageBox.Show(amount + " tk deposited to your account");
+            }catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void WithdrawButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double amount = double.Parse(amountTextBox.Text);
+                if (_account.Withdraw(amount) == 1)
+                {
+                    MessageBox.Show("You dont have sufficient balance! Your balance is: " + _account.balance);
+                }
+                else
+                {
+                    MessageBox.Show(amount + " tk withdrawed from your account");
+                }
+            }catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void ReportButton_Click(object sender, EventArgs e)
@@ -36,9 +70,5 @@ namespace AccountOperationAppPractice1
             MessageBox.Show(_account.GetReport());
         }
 
-        private void WithdrawButton_Click(object sender, EventArgs e)
-        {
-            _account.Withdraw(double.Parse(amountTextBox.Text));
-        }
     }
 }
