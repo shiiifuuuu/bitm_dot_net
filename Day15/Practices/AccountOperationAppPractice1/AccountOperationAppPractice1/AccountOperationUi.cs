@@ -12,7 +12,7 @@ namespace AccountOperationAppPractice1
 {
     public partial class AccountOperationUi : Form
     {
-        Account account = new Account();
+        Account _account;
         public AccountOperationUi()
         {
             InitializeComponent();
@@ -20,8 +20,7 @@ namespace AccountOperationAppPractice1
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            account.accountNo = accountNoTextBox.Text;
-            account.name = customerNameTextBox.Text;
+            _account = new Account(accountNoTextBox.Text, customerNameTextBox.Text);
 
             accountNoTextBox.Clear();
             customerNameTextBox.Clear();
@@ -29,15 +28,17 @@ namespace AccountOperationAppPractice1
 
         private void DipositButton_Click(object sender, EventArgs e)
         {
-            account.balance = double.Parse(amountTextBox.Text);
-            account.Deposit(account.balance);
-            amountTextBox.Clear();
+            _account.Deposit(double.Parse(amountTextBox.Text));
         }
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
-            string report = account.GetReport();
-            MessageBox.Show(report);
+            MessageBox.Show(_account.GetReport());
+        }
+
+        private void WithdrawButton_Click(object sender, EventArgs e)
+        {
+            _account.Withdraw(double.Parse(amountTextBox.Text));
         }
     }
 }
