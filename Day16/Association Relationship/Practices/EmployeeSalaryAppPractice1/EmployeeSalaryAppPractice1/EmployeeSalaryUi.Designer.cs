@@ -94,6 +94,7 @@
             this.ShowButton.TabIndex = 7;
             this.ShowButton.Text = "Show";
             this.ShowButton.UseVisualStyleBackColor = true;
+            this.ShowButton.Click += new System.EventHandler(this.ShowButton_Click);
             // 
             // label10
             // 
@@ -196,6 +197,7 @@
             this.IncrementButton.TabIndex = 7;
             this.IncrementButton.Text = "Increment";
             this.IncrementButton.UseVisualStyleBackColor = true;
+            this.IncrementButton.Click += new System.EventHandler(this.IncrementButton_Click);
             // 
             // increaseTextBox
             // 
@@ -254,6 +256,7 @@
             this.SaveButton.TabIndex = 7;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // conveyanceTextBox
             // 

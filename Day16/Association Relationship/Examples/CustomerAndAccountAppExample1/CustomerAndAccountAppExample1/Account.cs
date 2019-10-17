@@ -16,11 +16,12 @@ namespace CustomerAndAccountAppExample1
         {
             AccountNo = accountNo;
             OpeningDate = openingDate;
+            balance = 0;
         }
 
         public Account()
         {
-            balance = 0;
+            
         }
 
         internal void Deposit(string amount)

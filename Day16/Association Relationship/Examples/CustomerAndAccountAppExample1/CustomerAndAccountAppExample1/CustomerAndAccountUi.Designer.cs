@@ -370,6 +370,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "CustomerAndAccountUi";
             this.Text = "Customer And Account";
+            this.Load += new System.EventHandler(this.CustomerAndAccountUi_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);

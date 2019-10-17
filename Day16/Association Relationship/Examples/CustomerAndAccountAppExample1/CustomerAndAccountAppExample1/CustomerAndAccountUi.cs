@@ -43,5 +43,10 @@ namespace CustomerAndAccountAppExample1
             openingDate2TextBox.Text = _customer.CustomerAccount.OpeningDate;
             BalanceTextBox.Text = _customer.CustomerAccount.balance+"";
         }
+
+        private void CustomerAndAccountUi_Load(object sender, EventArgs e)
+        {
+            _customer = new Customer();
+        }
     }
 }

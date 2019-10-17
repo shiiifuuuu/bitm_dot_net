@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Employee.cs" />
     <Compile Include="EmployeeSalaryUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +54,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salary.cs" />
     <EmbeddedResource Include="EmployeeSalaryUi.resx">
       <DependentUpon>EmployeeSalaryUi.cs</DependentUpon>
     </EmbeddedResource>

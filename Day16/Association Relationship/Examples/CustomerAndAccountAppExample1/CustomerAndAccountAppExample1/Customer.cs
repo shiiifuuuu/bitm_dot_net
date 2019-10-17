@@ -21,6 +21,7 @@ namespace CustomerAndAccountAppExample1
 
         public Customer()
         {
+            CustomerAccount = new Account();
         }
     }
 }
