@@ -41,7 +41,7 @@ namespace SuperShopAppPractice3
         public string GetInfo()
         {
             string message = "";
-            string shopinfo = "Name: " + Name + " Address: " + Address;
+       string shopinfo = "Name: " + Name + " Address: " + Address;
             string header = "product Id \t\t Quantity";
             string productInfo = "";
 
