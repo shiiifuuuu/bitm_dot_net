@@ -21,17 +21,17 @@ namespace WebApp.BLL.Manager
             return _studentRepository.Delete(student);
         }
 
-        public bool Update(int id)
+        public bool Update(Student student)
         {
-            return _studentRepository.Update(id);
+            return _studentRepository.Update(student);
         }
 
-        public bool GetAll()
+        public List<Student> GetAll()
         {
             return _studentRepository.GetAll();
         }
 
-        public void GetById(int id)
+        public Student GetById(int id)
         {
             return _studentRepository.GetById(id);
         }

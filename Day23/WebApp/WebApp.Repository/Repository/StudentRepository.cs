@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,19 +28,33 @@ namespace WebApp.Repository.Repository
             throw new NotImplementedException();
         }
 
-        public bool Update(int id)
+        public bool Update(Student student)
         {
-            throw new NotImplementedException();
+            //Method 1
+            //Student aStudent = dbContext.Students.FirstOrDefault(c => c.Id == student.Id);
+
+            //if (aStudent !=null)
+            //{
+
+            // aStudent.RollNo = student.RollNo;
+            // aStudent.Name = student.Name;
+            // aStudent.Address = student.Address;
+            // aStudent.Age = student.Age;
+            //}
+
+            dbContext.Entry(student).State = EntityState.Modified;
+            return dbContext.SaveChanges() > 0;
         }
 
-        public bool GetAll()
+        public List<Student> GetAll()
         {
-            throw new NotImplementedException();
+            return dbContext.Students.ToList();
         }
 
-        public void GetById(int id)
+        public Student GetById(int id)
         {
-            throw new NotImplementedException();
+            Student student = dbContext.Students.FirstOrDefault(c => c.Id == id);
+            return student;
         }
     }
 }

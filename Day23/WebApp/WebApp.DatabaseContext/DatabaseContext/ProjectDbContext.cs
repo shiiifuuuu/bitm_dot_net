@@ -11,5 +11,6 @@ namespace WebApp.DatabaseContext.DatabaseContext
     public class ProjectDbContext: DbContext
     {
         public DbSet<Student> Students { get; set; }
+        public DbSet<Department> Departments { get; set; }
     }
 }
